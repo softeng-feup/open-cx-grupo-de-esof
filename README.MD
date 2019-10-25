@@ -1,12 +1,15 @@
 # ESOF Project | FEUP 2019/2020
 
 ## Vision
-Our project aims to ease a common touble among conferences nowadays. We want to give both the users and companies a better and easier way to interact with each other. To allow that, we want to build an android app capable of interact with a database stored in a central server with information about every user and company present in the lecture. The app's goal is to indicate the occupation of the different spaces and eventually make recomendations to any user of the spaces to visit through quizzes made by the companies to the users. The app also allows the event's organizers and every company to see stats about the event as well as collect feedback and informations about the users interested. 
+
+Our project aims to ease a common trouble among conferences nowadays. We want to give both the users and companies a better and easier way to interact with each other. We want to build an android app that tries to achieve this goal by allowing the various companies that attend a convention to create and share various quizzes with those that visit it. The quizzes' main objective, besides making the player curious and actively look for the answers, is for the people to interact directly with the various companies' representatives. To further motivate the attendants to interact with the companies, the quizzes may have certain rewards attached to their completion. These rewards can only be obtained after the attendant speaks with the respective representative of the company.
 
 ## Requirements
-* User Stories - https://trello.com/b/5j9l3GvD/user-stories
+
+* User Stories - <https://trello.com/b/5j9l3GvD/user-stories>
 
 ## Tech
+
 * Trello for user stories
 * Visual Paradigm for UML design
 * Flutter for the app development
