@@ -6,4 +6,5 @@ Although it is low on the priority list, the usage of QR Codes on our app is sti
 
 With this information, we determined that it is not only possible but relatively simple to add this to our project, thus helping with time managing.
 
-Any new usefull information about this topic should be stored in this folder.
+
+Any new usefull information about this should be stored in this folder.
