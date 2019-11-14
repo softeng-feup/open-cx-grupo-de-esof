@@ -1,24 +1,28 @@
 
 
 import 'package:flutter/material.dart';
-import 'homePage/homePage.dart';
-import 'homePage/homePage2.dart';
+import 'homePage/HomePage.dart';
+import 'homePage/Page1.dart';
 
 const HomePage1path = '/';
-const HomePage2path = '/2';
+const HomePage2path = '/second';
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      onGenerateRoute: _routes(),
-//      routes: {
-//        '/': (context) => HomePage(),
-//        '/second': (context) => HomePage2(),
-//      }
+      //onGenerateRoute: _routes(),
+      initialRoute: HomePage.routeName,
+
+      routes: <String, WidgetBuilder> {
+        HomePage.routeName: (context) => HomePage(),
+        Page1.routeName: (context) => Page1(),
+      }
+
     );
   }
 
+  /*
   RouteFactory _routes() {
     return (settings) {
       final Map<String, dynamic> arguments = settings.arguments;
@@ -38,4 +42,6 @@ class MyApp extends StatelessWidget {
       return MaterialPageRoute(builder: (BuildContext context) => screen);
     };
   }
+  */
+
 }

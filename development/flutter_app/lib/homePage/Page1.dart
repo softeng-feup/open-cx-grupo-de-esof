@@ -1,18 +1,17 @@
+
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 
-void main() {
-  runApp(new MyApp());
-}
+class Page1 extends StatefulWidget {
+  static const String routeName = "/page1";
 
-class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => new _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<Page1> {
   String barcode = "";
   final snackBar = new SnackBar(
     content: new Text("Texto copiado com sucesso!"),
@@ -32,7 +31,7 @@ class _MyAppState extends State<MyApp> {
             backgroundColor: Colors.white,
             title: new Text('Leitor QRCODE',
               style: TextStyle(
-                  color: Colors.black,
+                color: Colors.black,
               ),
             ),
           ),

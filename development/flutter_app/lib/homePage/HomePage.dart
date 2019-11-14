@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-import 'homePage2.dart';
+import 'Page1.dart';
 import '../app.dart';
 
-class HomePage1 extends StatelessWidget {
+class HomePage extends StatelessWidget {
+  static const String routeName = '/';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'HomePage1',
+      title: 'Home Page',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('HomePage 1'),
+          title: Text('Home Page'),
         ),
         body: Center(
           child: MyButton(),
@@ -46,10 +48,10 @@ class MyButton extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 8.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5.0),
-          color: Colors.lightGreen[500],
+          color: Colors.red,
         ),
         child: Center(
-          child: Text('Engage'),
+          child: Text('QR Code'),
         ),
       ),
     );
@@ -57,6 +59,15 @@ class MyButton extends StatelessWidget {
 
   _buttonTap(BuildContext context, int arg) {
     print("tapped!");
-    Navigator.pushNamed(context, HomePage2path, arguments: {'id': arg});
+
+    // Nao funciona, nao sei porque
+    //Navigator.pushNamed(context, page1.routeName);
+
+    Navigator.push(context, new MaterialPageRoute(
+        builder: (context) =>
+        new Page1())
+    );
+
+
   }
 }
