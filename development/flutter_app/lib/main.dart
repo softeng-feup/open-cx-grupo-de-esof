@@ -3,38 +3,37 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
+
+import 'app.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Welcome to Flutter'),
-        ),
-        body: Center(
-          child: RandomWords(),
-        ),
-      ),
-    );
-  }
 
 
-}
+//  class window extends StatelessWidget {
+//    int _count = 0;
+//
+//    Widget build(BuildContext context) {
+//      return Scaffold(
+//        appBar: AppBar(
+//          title: const Text('Sample Code'),
+//        ),
+//        body: Center(
+//            child: Text('You have pressed the button $_count times.')
+//        ),
+//        backgroundColor: Colors.blueGrey.shade200,
+//        floatingActionButton: FloatingActionButton(
+//          onPressed: () => setState(() => _count++),
+//          tooltip: 'Increment Counter',
+//          child: const Icon(Icons.add),
+//        ),
+//      );
+//    }
+//}
 
-class RandomWords extends StatefulWidget {
-  @override
-  RandomWordsState createState() => RandomWordsState();
-}
 
-class RandomWordsState extends State<RandomWords> {
-  @override
-  Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
-    return Text(wordPair.asPascalCase);
-  }
-}
+
+
+
+
+
