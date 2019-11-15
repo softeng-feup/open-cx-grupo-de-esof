@@ -1,11 +1,8 @@
 
-
 import 'package:flutter/material.dart';
-import 'homePage/HomePage.dart';
-import 'homePage/Page1.dart';
-
-const HomePage1path = '/';
-const HomePage2path = '/second';
+import 'Pages/StandCodePage.dart';
+import 'Pages/HomePage.dart';
+import 'Pages/QRcodePage.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -16,7 +13,8 @@ class MyApp extends StatelessWidget {
 
       routes: <String, WidgetBuilder> {
         HomePage.routeName: (context) => HomePage(),
-        Page1.routeName: (context) => Page1(),
+        StandCodePage.routeName: (context) => StandCodePage(),
+        QRcodePage.routeName: (context) => QRcodePage(),
       }
 
     );

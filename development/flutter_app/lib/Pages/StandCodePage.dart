@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
-import 'Page1.dart';
+import 'package:flutter_app/Pages/QRcodePage.dart';
+import 'HomePage.dart';
 import '../app.dart';
 
-class HomePage extends StatelessWidget {
-  static const String routeName = '/';
+class StandCodePage extends StatelessWidget {
+  static const String routeName = '/standcodepage';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Home Page',
+      title: 'Stand Code',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Home Page'),
+          title: Text('Stand Code'),
         ),
         body: Center(
             child: Column(children: <Widget>[
@@ -129,7 +129,7 @@ class ScanQR_button extends StatelessWidget {
 
     Navigator.push(context, new MaterialPageRoute(
         builder: (context) =>
-        new Page1())
+        new QRcodePage())
     );
   }
 }

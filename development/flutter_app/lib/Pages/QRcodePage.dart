@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 
-class Page1 extends StatefulWidget {
-  static const String routeName = "/page1";
+class QRcodePage extends StatefulWidget {
+  static const String routeName = "/qrcodepage";
 
   @override
   _MyAppState createState() => new _MyAppState();
 }
 
-class _MyAppState extends State<Page1> {
+class _MyAppState extends State<QRcodePage> {
   String barcode = "";
   final snackBar = new SnackBar(
     content: new Text("Texto copiado com sucesso!"),
