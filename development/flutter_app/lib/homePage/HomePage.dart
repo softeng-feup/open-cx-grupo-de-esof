@@ -15,49 +15,113 @@ class HomePage extends StatelessWidget {
           title: Text('Home Page'),
         ),
         body: Center(
-          child: MyButton(),
-        ),
+            child: Column(children: <Widget>[
+              SizedBox(height: 10),
+              Title(),
+              SizedBox(height: 10),
+              StandCodeTextField(),
+              SizedBox(height: 50),
+              AdviceText(),
+              SizedBox(height: 50),
+              ScanQR_button(),
+            ])
       ),
+    )
     );
   }
 }
 
-class RandomWords extends StatefulWidget {
-  @override
-  RandomWordsState createState() => RandomWordsState();
-}
-
-class RandomWordsState extends State<RandomWords> {
+class AdviceText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
-    return Text(wordPair.asPascalCase);
-  }
-}
+    return FlatButton(
+      color: Colors.white,
+      textColor: Colors.black,
+      disabledColor: Colors.grey,
+      disabledTextColor: Colors.black,
+      padding: EdgeInsets.all(8.0),
+      splashColor: Colors.blue,
+      onPressed: () {
 
-class MyButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _buttonTap(context, 1);
       },
-      child: Container(
-        height: 36.0,
-        padding: const EdgeInsets.all(8.0),
-        margin: const EdgeInsets.symmetric(horizontal: 8.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5.0),
-          color: Colors.red,
+      child: RichText(
+        text: TextSpan(
+          text: 'You can also access the quizzes via a QR Code',
+          style: TextStyle(
+            color: Colors.black,
+          ),
         ),
-        child: Center(
-          child: Text('QR Code'),
+        textScaleFactor: 1.5,
+      ),
+    );
+  }
+}
+
+class StandCodeTextField extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      obscureText: true,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(),
+        labelText: 'Insert here the stand code',
+      ),
+    );
+  }
+}
+
+class Title extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+      color: Colors.white,
+      textColor: Colors.black,
+      disabledColor: Colors.grey,
+      disabledTextColor: Colors.black,
+      padding: EdgeInsets.all(8.0),
+      splashColor: Colors.blue,
+      onPressed: () {
+
+      },
+      child: RichText(
+        text: TextSpan(
+          text: 'Stand Code',
+          style: TextStyle(
+            color: Colors.black,
+          ),
         ),
+        textScaleFactor: 2.5,
+      ),
+    );
+  }
+}
+
+class ScanQR_button extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+      color: Colors.black,
+      textColor: Colors.white,
+      disabledColor: Colors.grey,
+      disabledTextColor: Colors.black,
+      padding: EdgeInsets.all(8.0),
+      splashColor: Colors.blue,
+      onPressed: () {
+        _buttonTap(context);
+      },
+      child: RichText(
+        text: TextSpan(
+          text: 'Scan QR Code',
+          style: TextStyle(
+            color: Colors.white,
+              ),
+        ),
+        textScaleFactor: 2,
       ),
     );
   }
 
-  _buttonTap(BuildContext context, int arg) {
+  _buttonTap(BuildContext context) {
     print("tapped!");
 
     // Nao funciona, nao sei porque
@@ -67,7 +131,5 @@ class MyButton extends StatelessWidget {
         builder: (context) =>
         new Page1())
     );
-
-
   }
 }
