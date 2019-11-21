@@ -274,15 +274,17 @@ class ExtraInfo{
 
   ExtraInfo(this.infoType,  this.info);
 
-  update(InformationCard informationCard){
+  ExtraInfo.fromInformationCard(InformationCard informationCard){
     ExtraInfo(informationCard.infoName, informationCard.info);
   }
 }
 
 class ExtraInfoScreen extends StatelessWidget {
 
-  List<ExtraInfo> extraInfo;
-  DynamicInfoWindow dynamicInfoWindow = new DynamicInfoWindow();
+  final List<ExtraInfo> extraInfo = [];
+  final DynamicInfoWindow dynamicInfoWindow = new DynamicInfoWindow();
+
+  //ExtraInfoScreen({Key key, @required this.extraInfo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -300,20 +302,39 @@ class ExtraInfoScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text('Proj Esof'),
         ),
-        body: dynamicInfoWindow,
-        //ListView(
-        //children: [
-        //MyCustomForm(),
-        //titleSection,
-        //buttonSection,
-        //],
-        //),
+        body: Column(
+          children: [
+            Container(
+              height: 50,
+              child: RaisedButton.icon(
+                icon: Icon(Icons.send),
+                label: Text('Submit'),
+                onPressed: () {
+                  _sendDataBack(context);
+                },
+              ),
+            ),
+            Expanded(
+              child: dynamicInfoWindow,
+            ),
+          ],
+        ),
       ),
     );
   }
 
+  List<ExtraInfo> informationCardsToExtraInfo(List<InformationCard> list){
+
+    List<ExtraInfo> updatedExtraInfo = [];
+    for (InformationCard card in list){
+      updatedExtraInfo.add(ExtraInfo.fromInformationCard(card));
+    }
+    return updatedExtraInfo;
+  }
+
   void _sendDataBack(BuildContext context) {
-    Navigator.pop(context, this.extraInfo);
+    List<ExtraInfo> updatedExtraInfo = informationCardsToExtraInfo(dynamicInfoWindow.getList());
+    Navigator.pop(context, updatedExtraInfo);
   }
 }
 
@@ -420,8 +441,11 @@ class _InformationCardState extends State<InformationCard> with AutomaticKeepAli
 
 class DynamicInfoWindow extends StatefulWidget {
 
-  List<InformationCard> list = [];
+  final List<InformationCard> list = [];
 
+  getList(){
+    return this.list;
+  }
 
   @override
   State<StatefulWidget> createState() {
