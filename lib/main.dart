@@ -265,111 +265,163 @@ class MyApp extends StatelessWidget {
   }
 }*/
 
-/*void main() => runApp(MyApp());
+void main() => runApp(ExtraInfoScreen());
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    Color color = Theme
-        .of(context)
-        .primaryColor;
-    String username = "incognito";
+class ExtraInfo{
 
+  String infoType = '';
+  String info = '';
 
+  ExtraInfo(this.infoType,  this.info);
 
-
-    return MaterialApp(
-    title: 'Proj Esof',
-    home: Scaffold(
-    appBar: AppBar(
-    title: Text('Proj Esof'),
-    ),
-    body: DynamicInfoWindow(),
-    //ListView(
-    //children: [
-    //MyCustomForm(),
-    //titleSection,
-    //buttonSection,
-    //],
-    //),
-    ),
-    );
+  update(InformationCard informationCard){
+    ExtraInfo(informationCard.infoName, informationCard.info);
   }
 }
 
-class InformationCard extends StatefulWidget{
+class ExtraInfoScreen extends StatelessWidget {
+
+  List<ExtraInfo> extraInfo;
+  DynamicInfoWindow dynamicInfoWindow = new DynamicInfoWindow();
+
+  @override
+  Widget build(BuildContext context) {
+
+
+
+    Color color = Theme
+        .of(context)
+        .primaryColor;
+
+
+    return MaterialApp(
+      title: 'Proj Esof',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Proj Esof'),
+        ),
+        body: dynamicInfoWindow,
+        //ListView(
+        //children: [
+        //MyCustomForm(),
+        //titleSection,
+        //buttonSection,
+        //],
+        //),
+      ),
+    );
+  }
+
+  void _sendDataBack(BuildContext context) {
+    Navigator.pop(context, this.extraInfo);
+  }
+}
+
+class InformationCard extends StatefulWidget {
+
+
+  final String infoName = '';
+  final String info = '';
 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return new _InformationCardState();
+    return new _InformationCardState(infoName, info);
   }
 
-  String infoName = 'Info Name';
-  String info = '';
 
 }
 
-class _InformationCardState extends State<InformationCard> {
+//AutomaticKeepAlive used to stop List View from deleting information
+class _InformationCardState extends State<InformationCard> with AutomaticKeepAliveClientMixin{
 
   TextEditingController infoNameController = TextEditingController();
   TextEditingController infoController = TextEditingController();
-  FocusNode myFocusNode;
+  String infoName;
+  String info;
+  FocusNode myFocusNode1;
+  FocusNode myFocusNode2;
+
+  _InformationCardState(this.infoName, this.info) : super();
 
   @override
   void initState() {
     super.initState();
-    myFocusNode = FocusNode();
+    myFocusNode1 = FocusNode();
+    myFocusNode2 = FocusNode();
   }
 
   void dispose() {
-    myFocusNode.dispose();
+    myFocusNode1.dispose();
+    myFocusNode2.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Column(
-      children: [
-        EditableText(
-          controller: infoController,
-          onChanged: _updateInfo,
-          backgroundCursorColor: Colors.blue,
-          cursorColor: Colors.green,
-          focusNode: myFocusNode,
-          style: TextStyle(
-          ),
+    // TODO: make it prettier
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.blue,
+          width: 2,
         ),
-
-        EditableText(
-          controller: infoController,
-          onChanged: _updateInfo,
-          backgroundCursorColor: Colors.blue,
-          cursorColor: Colors.green,
-          focusNode: myFocusNode,
-          style: TextStyle(
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextField(
+            controller: infoNameController,
+//              onChanged: _handleSubmission,
+            onChanged: _updateName,
+            decoration: InputDecoration(
+              hintText: 'Contact Type',
+            ),
+            style: TextStyle(
+              fontSize: 24,
+              color: Colors.black,
+            ),
           ),
-        )
-      ],
+
+
+          TextField(
+            controller: infoController,
+//              onChanged: _handleSubmission,
+            onChanged: _updateInfo,
+            decoration: InputDecoration(
+              hintText: 'Contact',
+            ),
+            style: TextStyle(
+              fontSize: 24,
+              color: Colors.black,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
-  _updateInfo(String text){
+  _updateInfo(String text) {
     setState(() {
-      widget.info = text;
+      this.info = text;
     });
   }
 
-  _updateName(String text){
+  _updateName(String text) {
     setState(() {
-      widget.infoName = text;
+      this.infoName = text;
     });
   }
+
+  @override
+  bool get wantKeepAlive => true;
 
 }
 
-class DynamicInfoWindow extends StatefulWidget{
+class DynamicInfoWindow extends StatefulWidget {
+
+  List<InformationCard> list = [];
+
 
   @override
   State<StatefulWidget> createState() {
@@ -377,18 +429,16 @@ class DynamicInfoWindow extends StatefulWidget{
   }
 }
 
-class _DynamicInfoWindowState extends State<DynamicInfoWindow>{
-
-  List<String> list = [];
+class _DynamicInfoWindowState extends State<DynamicInfoWindow> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    // TODO: make it prettier
     return Column(
         children: [
           RaisedButton(
             child: Text(
-              'Update',
+              'AddCard',
               style: TextStyle(fontSize: 24),
             ),
             onPressed: () {
@@ -396,24 +446,31 @@ class _DynamicInfoWindowState extends State<DynamicInfoWindow>{
             },
           ),
           Expanded(
-            child: ListView.builder(
-                itemCount: list.length,
-                itemBuilder: (BuildContext context, int Index){
-                  return new Text(list[Index]);
+            child: ListView.separated(
+                separatorBuilder: (context, index) =>
+                    Divider(
+                      color: Colors.black,
+                      thickness: 10,
+                    ),
+                addAutomaticKeepAlives: true,
+                itemCount: widget.list.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return widget.list[index];
                 }
             ),
           ),
         ]
     );
-
   }
 
-  _update(){
-    list.add("oi");
+  _update() {
+    widget.list.add(InformationCard());
     setState(() {});
   }
-}*/
-void main() {
+}
+
+
+/*void main() {
   runApp(MaterialApp(
     title: 'Flutter',
     home: FirstScreen(),
@@ -668,4 +725,4 @@ class _TextFieldWithSubmitButtonState extends State<TextFieldWithSubmitButton> {
     });
     widget.onChanged(this.field);
   }
-}
+}*/
