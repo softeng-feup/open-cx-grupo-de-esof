@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'StandCodePage.dart';
 import 'HomePage.dart';
-import 'QRcodePage.dart';
 
 class HomePage extends StatelessWidget {
   static const String routeName = "/";

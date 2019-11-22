@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Pages/QRcodePage.dart';
+import 'package:barcode_scan/barcode_scan.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'dart:async';
 import 'HomePage.dart';
 import '../app.dart';
 
@@ -96,7 +99,22 @@ class Title extends StatelessWidget {
   }
 }
 
-class ScanQR_button extends StatelessWidget {
+class ScanQR_button extends StatefulWidget {
+  @override
+  _ScanQR_state createState() => new _ScanQR_state();
+}
+
+class _ScanQR_state extends State<ScanQR_button> {
+  String barcode = "";
+  final snackBar = new SnackBar(
+    content: new Text("Texto copiado com sucesso!"),
+  );
+  //final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  @override
+  initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return FlatButton(
@@ -107,7 +125,7 @@ class ScanQR_button extends StatelessWidget {
       padding: EdgeInsets.all(8.0),
       splashColor: Colors.blue,
       onPressed: () {
-        _buttonTap(context);
+        scan();
       },
       child: RichText(
         text: TextSpan(
@@ -121,6 +139,27 @@ class ScanQR_button extends StatelessWidget {
     );
   }
 
+  Future scan() async {
+    try {
+      String barcode = await BarcodeScanner.scan();
+      setState(() => this.barcode = barcode);
+    } on PlatformException catch (e) {
+      if (e.code == BarcodeScanner.CameraAccessDenied) {
+        setState(() {
+          this.barcode = 'Usuário não concedeu permissão para a câmera';
+        });
+      } else {
+        setState(() => this.barcode = 'Unknown error: $e');
+      }
+    } on FormatException {
+      setState(() => this.barcode = '(Não foi possível ler o código)');
+    } catch (e) {
+      setState(() => this.barcode = 'Unknown error: $e');
+    }
+  }
+}
+
+/*
   _buttonTap(BuildContext context) {
     print("tapped!");
 
@@ -132,4 +171,4 @@ class ScanQR_button extends StatelessWidget {
         new QRcodePage())
     );
   }
-}
+  */
