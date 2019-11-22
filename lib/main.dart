@@ -406,6 +406,7 @@ class _InformationCardState extends State<InformationCard> with AutomaticKeepAli
   @override
   Widget build(BuildContext context) {
     // TODO: make it prettier
+    super.build(context);
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
