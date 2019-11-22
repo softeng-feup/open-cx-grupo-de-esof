@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
 import 'package:flutter/services.dart';
 /*
 void main() => runApp(MyApp());
@@ -265,8 +264,6 @@ class MyApp extends StatelessWidget {
   }
 }*/
 
-void main() => runApp(ExtraInfoScreen());
-
 class ExtraInfo{
 
   String infoType = '';
@@ -274,17 +271,34 @@ class ExtraInfo{
 
   ExtraInfo(this.infoType,  this.info);
 
-  ExtraInfo.fromInformationCard(InformationCard informationCard){
-    ExtraInfo(informationCard.infoName, informationCard.info);
+  ExtraInfo.fromExtraInfo(ExtraInfo otherExtraInfo){
+    this.infoType = otherExtraInfo.infoType;
+    this.info = otherExtraInfo.info ;
   }
 }
 
-class ExtraInfoScreen extends StatelessWidget {
+class ExtraInfoScreen extends StatefulWidget {
 
-  final List<ExtraInfo> extraInfo = [];
-  final DynamicInfoWindow dynamicInfoWindow = new DynamicInfoWindow();
+  final List<ExtraInfo> extraInfo;
 
-  //ExtraInfoScreen({Key key, @required this.extraInfo}) : super(key: key);
+  ExtraInfoScreen({Key key, this.extraInfo}) :
+        super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+    return ExtraInfoScreenState(this.extraInfo);
+  }
+
+  
+}
+
+class ExtraInfoScreenState extends State<ExtraInfoScreen> {
+
+  DynamicInfoWindow dynamicInfoWindow;
+
+  ExtraInfoScreenState(List<ExtraInfo> extraInfo) :
+  dynamicInfoWindow = DynamicInfoWindow.fromList(extraInfoToInformationCards(extraInfo)), super();
+
 
   @override
   Widget build(BuildContext context) {
@@ -296,9 +310,7 @@ class ExtraInfoScreen extends StatelessWidget {
         .primaryColor;
 
 
-    return MaterialApp(
-      title: 'Proj Esof',
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text('Proj Esof'),
         ),
@@ -319,17 +331,25 @@ class ExtraInfoScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 
   List<ExtraInfo> informationCardsToExtraInfo(List<InformationCard> list){
 
     List<ExtraInfo> updatedExtraInfo = [];
     for (InformationCard card in list){
-      updatedExtraInfo.add(ExtraInfo.fromInformationCard(card));
+      updatedExtraInfo.add(card.extraInfo);
     }
     return updatedExtraInfo;
+  }
+
+  static List<InformationCard> extraInfoToInformationCards(List<ExtraInfo> list){
+
+    List<InformationCard> informationCards = [];
+    for (ExtraInfo extraInfo in list){
+      informationCards.add(InformationCard(info: extraInfo.info, infoName: extraInfo.infoType));
+    }
+    return informationCards;
   }
 
   void _sendDataBack(BuildContext context) {
@@ -341,13 +361,15 @@ class ExtraInfoScreen extends StatelessWidget {
 class InformationCard extends StatefulWidget {
 
 
-  final String infoName = '';
-  final String info = '';
+  final ExtraInfo extraInfo;
+
+  InformationCard({Key key, infoName = '',  info = ''}) :
+        extraInfo = ExtraInfo(infoName, info), super(key: key);
 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return new _InformationCardState(infoName, info);
+    return new _InformationCardState(extraInfo);
   }
 
 
@@ -356,14 +378,17 @@ class InformationCard extends StatefulWidget {
 //AutomaticKeepAlive used to stop List View from deleting information
 class _InformationCardState extends State<InformationCard> with AutomaticKeepAliveClientMixin{
 
-  TextEditingController infoNameController = TextEditingController();
-  TextEditingController infoController = TextEditingController();
-  String infoName;
-  String info;
+  TextEditingController infoNameController;
+  TextEditingController infoController;
+  ExtraInfo extraInfo;
   FocusNode myFocusNode1;
   FocusNode myFocusNode2;
 
-  _InformationCardState(this.infoName, this.info) : super();
+  _InformationCardState(ExtraInfo extraInfo) : super(){
+    this.extraInfo = extraInfo;
+    infoNameController = TextEditingController(text: extraInfo.infoType);
+    infoController = TextEditingController(text: extraInfo.info);
+  }
 
   @override
   void initState() {
@@ -424,13 +449,13 @@ class _InformationCardState extends State<InformationCard> with AutomaticKeepAli
 
   _updateInfo(String text) {
     setState(() {
-      this.info = text;
+      extraInfo.info = text;
     });
   }
 
   _updateName(String text) {
     setState(() {
-      this.infoName = text;
+      extraInfo.infoType = text;
     });
   }
 
@@ -441,7 +466,13 @@ class _InformationCardState extends State<InformationCard> with AutomaticKeepAli
 
 class DynamicInfoWindow extends StatefulWidget {
 
-  final List<InformationCard> list = [];
+  final List<InformationCard> list;
+
+  DynamicInfoWindow():
+      this.list = [];
+
+  DynamicInfoWindow.fromList(this.list);
+
 
   getList(){
     return this.list;
@@ -494,7 +525,7 @@ class _DynamicInfoWindowState extends State<DynamicInfoWindow> {
 }
 
 
-/*void main() {
+void main() {
   runApp(MaterialApp(
     title: 'Flutter',
     home: FirstScreen(),
@@ -585,6 +616,7 @@ class _SecondScreenState extends State<SecondScreen> {
   String username;
   String phoneNumber;
   String email;
+  List<ExtraInfo> extraInfo = [];
 
   _SecondScreenState(this.username, this.phoneNumber, this.email): super();
 
@@ -625,6 +657,16 @@ class _SecondScreenState extends State<SecondScreen> {
             onPressed: () {
               _sendDataBack(context);
             },
+          ),
+
+          RaisedButton(
+            child: Text(
+              'Add Extra Info',
+              style: TextStyle(fontSize: 24),
+            ),
+            onPressed: () {
+              _awaitReturnValueFromExtraInfoScreen(context);
+            },
           )
 
         ],
@@ -656,6 +698,21 @@ class _SecondScreenState extends State<SecondScreen> {
   // get the text in the TextField and send it back to the FirstScreen
   void _sendDataBack(BuildContext context) {
     Navigator.pop(context, [this.username, this.email, this.phoneNumber]);
+  }
+
+  void _awaitReturnValueFromExtraInfoScreen(BuildContext context) async {
+
+    // start the SecondScreen and wait for it to finish with a result
+    final result = await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ExtraInfoScreen(extraInfo: this.extraInfo),
+        ));
+
+    // after the SecondScreen result comes back update the Text widget with it
+    setState(() {
+      this.extraInfo = result;
+    });
   }
 
 
@@ -749,4 +806,4 @@ class _TextFieldWithSubmitButtonState extends State<TextFieldWithSubmitButton> {
     });
     widget.onChanged(this.field);
   }
-}*/
+}
