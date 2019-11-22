@@ -2,267 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:english_words/english_words.dart' as prefix0;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-/*
-void main() => runApp(MyApp());
-
-class NewRouteButton extends StatefulWidget {
-  @override
-  _NewRouteButtonState createState() => _NewRouteButtonState();
-}
-
-class _NewRouteButtonState extends State<NewRouteButton> {
-  bool _isFavorited = true;
-  int _favoriteCount = 41;
-
-  // ···
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          padding: EdgeInsets.all(0),
-          child: IconButton(
-            icon: (_isFavorited ? Icon(Icons.star) : Icon(Icons.star_border)),
-            color: Colors.red[500],
-            onPressed: () {Navigator.pop(context);},
-          ),
-        ),
-        SizedBox(
-          width: 18,
-          child: Container(
-            child: Text('$_favoriteCount'),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-
-// Define a custom Form widget.
-class MyCustomForm extends StatefulWidget {
-  @override
-  _MyCustomFormState createState() => _MyCustomFormState();
-}
-
-// Define a corresponding State class.
-// This class holds the data related to the Form.
-class _MyCustomFormState extends State<MyCustomForm> {
-  // Create a text controller and use it to retrieve the current value
-  // of the TextField.
-  final myController = TextEditingController();
-  String username = "Incognito";
-
-  @override
-  void dispose() {
-    // Clean up the controller when the widget is disposed.
-    myController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("$username"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'Username',
-          ),
-          controller: myController,
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        // When the user presses the button, show an alert dialog containing
-        // the text that the user has entered into the text field.
-        onPressed: () {
-          _updateUsername(myController.text);
-          *//*return showDialog(
-            context: context,
-            builder: (context) {
-              return AlertDialog(
-                // Retrieve the text the that user has entered by using the
-                // TextEditingController.
-                content: Text(myController.text),
-              );
-            },
-          );*//*
-        },
-        tooltip: 'Show me the value!',
-        child: Icon(Icons.text_fields),
-      ),
-    );
-  }
-
-  void _updateUsername(String string)
-  {
-    setState(() {
-      username = string;
-    });
-  }
-}
-
-
-class FavoriteWidget extends StatefulWidget {
-  @override
-  _FavoriteWidgetState createState() => _FavoriteWidgetState();
-}
-
-class _FavoriteWidgetState extends State<FavoriteWidget> {
-  bool _isFavorited = true;
-  int _favoriteCount = 41;
-  // ···
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          padding: EdgeInsets.all(0),
-          child: IconButton(
-            icon: (_isFavorited ? Icon(Icons.star) : Icon(Icons.star_border)),
-            color: Colors.red[500],
-            onPressed: _toggleFavorite,
-          ),
-        ),
-        SizedBox(
-          width: 18,
-          child: Container(
-            child: Text('$_favoriteCount'),
-          ),
-        ),
-      ],
-    );
-  }
-
-  void _toggleFavorite() {
-    setState(() {
-      if (_isFavorited) {
-        _favoriteCount -= 1;
-        _isFavorited = false;
-      } else {
-        _favoriteCount += 1;
-        _isFavorited = true;
-      }
-    });
-  }
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-
-    Color color = Theme.of(context).primaryColor;
-    String username = "incognito";
-
-    Widget buttonSection = Container (
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          _buildButtonColumn(color, Icons.email, 'EMAIL'),
-          _buildButtonColumn(color, Icons.phone, 'PHONE'),
-          _buildButtonColumn(color, Icons.book, 'OTHERS'),
-        ],
-      ),
-    );
-    Widget titleSection = Container(
-      padding: const EdgeInsets.all(32),
-      child: Row(
-        children: [
-          Expanded(
-            *//*1*//*
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  username,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-
-                TextField(
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Username',
-
-                  ),
-                  onChanged: (text){
-                    username = text;
-                  },
-                ),
-
-                *//*2*//**//*
-                Container(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Text(
-                    'Oeschinen Lake Campground',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Text(
-                  'Kandersteg, Switzerland',
-                  style: TextStyle(
-                    color: Colors.grey[500],
-                  ),
-                ),*//*
-              ],
-            ),
-          ),
-          *//*3*//*
-          FavoriteWidget(),
-        ],
-      ),
-    );
-
-
-    return MaterialApp(
-      title: 'Proj Esof',
-      home: Scaffold(
-        appBar: AppBar(
-        title: Text('Proj Esof'),
-    ),
-        body: MyCustomForm(),
-        //ListView(
-          //children: [
-            //MyCustomForm(),
-            //titleSection,
-            //buttonSection,
-          //],
-        //),
-      ),
-    );
-  }
-
-  Column _buildButtonColumn(Color color, IconData icon, String label){
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        *//*2*//*
-        Icon(icon, color: color),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-            color: color,
-          ),
-        ),
-      ],
-    );
-  }
-}*/
 
 class ExtraInfo{
 
@@ -511,7 +253,22 @@ class _DynamicInfoWindowState extends State<DynamicInfoWindow> {
                 addAutomaticKeepAlives: true,
                 itemCount: widget.list.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return widget.list[index];
+                  final item = widget.list[index];
+                  print(item.toString());
+                  return Dismissible(
+                    background: Container(color: Colors.red),
+                    //TODO: USE BETTER KEY GENERATION
+                    key: Key(prefix0.WordPair.random().asString),
+                    onDismissed: (direction) {
+                      // Remove the item from the data source.
+                      _removeCard(index);
+                      // Then show a snackbar.
+                      Scaffold.of(context)
+                          .showSnackBar(
+                          SnackBar(content: Text("$item dismissed")));
+                    },
+                    child: widget.list[index],
+                  );
                 }
             ),
           ),
@@ -522,6 +279,12 @@ class _DynamicInfoWindowState extends State<DynamicInfoWindow> {
   _update() {
     widget.list.add(InformationCard());
     setState(() {});
+  }
+
+  _removeCard(index){
+    setState(() {
+      widget.list.removeAt(index);
+    });
   }
 }
 
