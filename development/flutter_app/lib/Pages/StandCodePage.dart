@@ -37,25 +37,12 @@ class StandCodePage extends StatelessWidget {
 class AdviceText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      color: Colors.white,
-      textColor: Colors.black,
-      disabledColor: Colors.grey,
-      disabledTextColor: Colors.black,
-      padding: EdgeInsets.all(8.0),
-      splashColor: Colors.blue,
-      onPressed: () {
-
-      },
-      child: RichText(
-        text: TextSpan(
-          text: 'You can also access the quizzes via a QR Code',
-          style: TextStyle(
-            color: Colors.black,
-          ),
+    return Text(
+       "You can also access the quiz by scanning a QR Code",
+      style: TextStyle(
+          fontSize: 20,
         ),
-        textScaleFactor: 1.5,
-      ),
+      textAlign: TextAlign.center,
     );
   }
 }
@@ -64,7 +51,6 @@ class StandCodeTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      obscureText: true,
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         labelText: 'Insert here the stand code',
@@ -76,25 +62,12 @@ class StandCodeTextField extends StatelessWidget {
 class Title extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      color: Colors.white,
-      textColor: Colors.black,
-      disabledColor: Colors.grey,
-      disabledTextColor: Colors.black,
-      padding: EdgeInsets.all(8.0),
-      splashColor: Colors.blue,
-      onPressed: () {
-
-      },
-      child: RichText(
-        text: TextSpan(
-          text: 'Stand Code',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-        textScaleFactor: 2.5,
+    return Text(
+      "Stand Code",
+      style: TextStyle(
+        fontSize: 40,
       ),
+      textAlign: TextAlign.center,
     );
   }
 }
@@ -160,6 +133,7 @@ class _ScanQR_state extends State<ScanQR_button> {
 }
 
 /*
+
   _buttonTap(BuildContext context) {
     print("tapped!");
 
