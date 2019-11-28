@@ -7,12 +7,25 @@ import 'package:flutter/services.dart';
 
 import 'app.dart';
 
+//userInfo
+import 'userInfo/screens.dart';
+
+
+void main() {
+  runApp(MaterialApp(
+    title: 'Flutter',
+    home: FirstScreen(),
+  ));
+}
+
+/*
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(new MyApp());
   });
 }
+*/
 
 
 
