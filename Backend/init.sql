@@ -6,6 +6,10 @@ DROP TABLE IF EXISTS quizz;
 DROP TABLE IF EXISTS company;
 DROP TABLE IF EXISTS extra_info;
 DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS conference;
+DROP TABLE IF EXISTS evaluation;
+DROP TABLE IF EXISTS user_quizz;
+
 
 
 CREATE TABLE account (
@@ -37,7 +41,7 @@ CREATE TABLE user (
 CREATE TABLE extra_info (  
     infoid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     infoType VARCHAR,
-    infoCOntent VARCHAR,
+    infoContent VARCHAR,
     userid VARCHAR REFERENCES user,
 );
 
@@ -61,3 +65,24 @@ CREATE TABLE option (
     questionid VARCHAR REFERENCES question,
 );
 
+CREATE TABLE conference (
+    conferenceid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    code VARCHAR,
+    qrcode BOOLEAN,
+);
+
+CREATE TABLE evaluation (
+    evaluationid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    rate int,
+    comment VARCHAR,
+    userid REFERENCES user,
+    quizzid REFERENCES quizz
+);
+
+CREATE TABLE user_quizz (
+    user_quizzid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    rate int,
+    comment VARCHAR,
+    userid REFERENCES user,
+    quizzid REFERENCES quizz
+);
