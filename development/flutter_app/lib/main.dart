@@ -7,10 +7,7 @@ import 'package:flutter/services.dart';
 
 import 'app.dart';
 
-//userInfo
 import 'userInfo/screens.dart';
-
-
 
 
 void main() {
@@ -19,6 +16,9 @@ void main() {
     runApp(new MyApp());
   });
 }
+
+
+
 
 
 
