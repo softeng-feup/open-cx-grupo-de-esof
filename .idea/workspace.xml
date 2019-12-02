@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8b30d532-c3c1-4ddf-80ca-20bd8e6035ac" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/Pages/HomePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/Pages/HomePage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/userInfo/ExtraInfo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/UserInfo/ExtraInfo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/userInfo/TextFieldWithSubmitButton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/UserInfo/TextFieldWithSubmitButton.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/userInfo/screens.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/UserInfo/screens.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,20 +23,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_29_x86" />
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/development/flutter_app/test/widget_test.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-              <folding>
-                <element signature="e#0#1050#0" expanded="true" />
-                <element signature="e#357#396#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/app.dart">
           <provider selected="true" editor-type-id="text-editor">
@@ -46,20 +36,88 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+            <state relative-caret-position="160">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
-                <element signature="e#0#408#0" expanded="true" />
                 <element signature="e#162#201#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserMainScreen/UserMainScreen.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+              <folding>
+                <element signature="e#2#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/Pages/StandCodePage.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/Pages/HomePage.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="534">
+              <caret line="37" column="31" lean-forward="true" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserInfo/TextFieldWithSubmitButton.dart">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserInfo/ExtraInfo.dart">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserInfo/screens.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="139">
+              <caret line="437" column="70" selection-start-line="437" selection-start-column="59" selection-end-line="437" selection-end-column="70" />
+              <folding>
+                <element signature="e#0#61#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>app</find>
+      <find>first screen</find>
+      <find>firstscreen</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,7 +128,13 @@
         <option value="$PROJECT_DIR$/development/flutter_app/test/widget_test.dart" />
         <option value="$PROJECT_DIR$/development/flutter_app/lib/main (2).dart" />
         <option value="$PROJECT_DIR$/development/flutter_app/lib/app.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/userInfo/screens.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/UserScreen/UserMainScreen.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/UserInfo/UserMainScreen.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/UserInfo/screens.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/Pages/HomePage.dart" />
         <option value="$PROJECT_DIR$/development/flutter_app/lib/main.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/UserMainScreen/UserMainScreen.dart" />
       </list>
     </option>
   </component>
@@ -123,15 +187,31 @@
               <item name="open-cx-grupo-de-esof-master" type="462c0819:PsiDirectoryNode" />
               <item name="development" type="462c0819:PsiDirectoryNode" />
               <item name="flutter_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="Pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-cx-grupo-de-esof-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="open-cx-grupo-de-esof-master" type="462c0819:PsiDirectoryNode" />
+              <item name="development" type="462c0819:PsiDirectoryNode" />
+              <item name="flutter_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="UserMainScreen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-cx-grupo-de-esof-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="open-cx-grupo-de-esof-master" type="462c0819:PsiDirectoryNode" />
+              <item name="development" type="462c0819:PsiDirectoryNode" />
+              <item name="flutter_app" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -144,6 +224,12 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ciclo\Desktop\Universidade\Terceiro_Ano\ESOF\open-cx-grupo-de-esof-master\development\flutter_app\lib\UserMainScreen" />
+      <recent name="C:\Users\ciclo\Desktop\Universidade\Terceiro_Ano\ESOF\open-cx-grupo-de-esof-master\development\flutter_app\lib\UserInfo" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -203,7 +289,6 @@
       <window_info id="Resources Explorer" order="6" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Favorites" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Find" />
       <window_info anchor="bottom" id="Run" order="0" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.3286119" />
@@ -214,6 +299,7 @@
       <window_info anchor="bottom" id="Flutter Performance" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Dart Analysis" order="9" weight="0.3286119" />
+      <window_info anchor="bottom" id="Find" order="10" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Theme Preview" order="2" />
@@ -233,31 +319,30 @@
     <entry file="file://$PROJECT_DIR$/development/flutter_app/.metadata">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/Pages/StandCodePage.dart">
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/main (2).dart" />
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserInfo/ExtraInfo.dart">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserInfo/TextFieldWithSubmitButton.dart">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserInfo/screens.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        <state relative-caret-position="139">
+          <caret line="437" column="70" selection-start-line="437" selection-start-column="59" selection-end-line="437" selection-end-column="70" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#61#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/development/flutter_app/test/widget_test.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+        <state>
+          <caret line="5" column="80" selection-start-line="5" selection-start-column="80" selection-end-line="5" selection-end-column="80" />
           <folding>
-            <element signature="e#0#1050#0" expanded="true" />
             <element signature="e#357#396#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/main (2).dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -273,12 +358,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        <state relative-caret-position="160">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
-            <element signature="e#0#408#0" expanded="true" />
             <element signature="e#162#201#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserMainScreen/UserMainScreen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+          <folding>
+            <element signature="e#2#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/Pages/StandCodePage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/Pages/HomePage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="37" column="31" lean-forward="true" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
         </state>
       </provider>
     </entry>

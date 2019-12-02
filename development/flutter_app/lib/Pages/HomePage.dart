@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/UserMainScreen/UserMainScreen.dart';
 import 'StandCodePage.dart';
 import 'HomePage.dart';
 
@@ -56,7 +57,7 @@ class ScanQR_button extends StatelessWidget {
 
     Navigator.push(context, new MaterialPageRoute(
         builder: (context) =>
-        new StandCodePage())
+        new UserMainScreen())
     );
   }
 }
