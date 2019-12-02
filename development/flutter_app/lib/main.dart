@@ -7,12 +7,19 @@ import 'package:flutter/services.dart';
 
 import 'app.dart';
 
+import 'userInfo/screens.dart';
+
+
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(new MyApp());
   });
 }
+
+
+
+
 
 
 

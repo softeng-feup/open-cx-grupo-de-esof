@@ -10,8 +10,6 @@ DROP TABLE IF EXISTS conference;
 DROP TABLE IF EXISTS evaluation;
 DROP TABLE IF EXISTS user_quizz;
 
-
-
 CREATE TABLE account (
     accountid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR UNIQUE,
