@@ -1,8 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app/UserMainScreen/UserMainScreen.dart';
-import 'StandCodePage.dart';
-import 'HomePage.dart';
 
 class HomePage extends StatelessWidget {
   static const String routeName = "/";

@@ -35,12 +35,6 @@ class ExtraInfoScreenState extends State<ExtraInfoScreen> {
   Widget build(BuildContext context) {
 
 
-
-    Color color = Theme
-        .of(context)
-        .primaryColor;
-
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Extra Info'),
@@ -256,7 +250,7 @@ class _DynamicInfoWindowState extends State<DynamicInfoWindow> {
                   return Dismissible(
                     background: Container(color: Colors.red),
                     //TODO: USE BETTER KEY GENERATION
-                    key: Key(prefix0.WordPair.random().asString),
+                    key: Key(prefix0.WordPair.random().asString + prefix0.WordPair.random().asString),
                     onDismissed: (direction) {
                       // Remove the item from the data source.
                       _removeCard(index);
@@ -295,7 +289,7 @@ class SecondScreen extends StatefulWidget {
   SecondScreen({Key key, this.username, this.email, this.phoneNumber, this.extraInfo}) : super(key: key);
 
   @override
-  _SecondScreenState createState() {
+  State<StatefulWidget> createState() {
     return _SecondScreenState(this.username, this.phoneNumber, this.email, this.extraInfo);
   }
 }

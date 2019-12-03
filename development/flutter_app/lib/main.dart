@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'app.dart';
+import 'package:flutter_app/QuizCreation/QuizCreation.dart';
 
-import 'userInfo/screens.dart';
 
 
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
-    runApp(new MyApp());
+    runApp(new TestQuizCard());
   });
 }
 
