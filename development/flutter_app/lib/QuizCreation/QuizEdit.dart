@@ -8,7 +8,7 @@ class QuizEdit extends StatefulWidget {
 
   @override
   State<QuizEdit> createState() {
-    return new _QuizEdit(question: 'Ya like Jaaaazzzz? :)');
+    return new _QuizEdit(question: 'Ya like Jaaaazzzz? The quantic dream tells you where the sweet, luscious jazz is :)');
   }
 }
 
@@ -17,9 +17,7 @@ class _QuizEdit extends State<QuizEdit> {
 
   String question;
 
-  List<String> answers = [];
 
-  int _radioValue1 = 0;
 
   _QuizEdit({this.question = 'Novo Quiz'});
 
@@ -33,16 +31,57 @@ class _QuizEdit extends State<QuizEdit> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
-            flex: 3,
-            child: Text(
-              this.question,
+            flex: 2,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Center(
+                child: Text(
+                    this.question,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+
+                    )
+                ),
+              ),
             ),
           ),
           Expanded(
             flex: 8,
+            child: AnswerList(),
+          ),
+        ],
+      ),
+    );
+  }
+  
+
+}
+
+class AnswerList extends StatefulWidget{
+
+  final List<String> answers = [];
+
+  @override
+  State<StatefulWidget> createState() {
+    return _AnswerListState(answers: this.answers);
+  }
+
+}
+
+class _AnswerListState extends State<AnswerList> {
+
+  int _radioValue1 = 0;
+  List<String> answers;
+
+  _AnswerListState({@required this.answers});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+        children: [
+          Expanded(flex: 16,
             child: ReorderableListView(
-              children:
-              List.generate(answers.length, (index) {
+              children: List.generate(answers.length, (index) {
                 return Container(
                   decoration: BoxDecoration(
                     border: Border.all(
@@ -70,8 +109,8 @@ class _QuizEdit extends State<QuizEdit> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Expanded(flex:1, child:Text("Answer nº $index\n"),),
-                        Expanded(flex:5, child:Text(answers[index]),),
+                        Expanded(flex: 1, child: Text("Answer nº $index\n"),),
+                        Expanded(flex: 5, child: Text(answers[index]),),
 
                       ],
                     ),
@@ -89,7 +128,7 @@ class _QuizEdit extends State<QuizEdit> {
           ),
 
           Expanded(
-            flex: 1,
+            flex: 2,
             child: RaisedButton(
               shape: CircleBorder(),
               child: Icon(Icons.add),
@@ -98,27 +137,32 @@ class _QuizEdit extends State<QuizEdit> {
               },
             ),
           ),
-        ],
-      ),
+
+          Expanded(
+            flex: 1,
+            child: Container(),
+          )
+        ]
     );
   }
 
-  _updateQuiz(oldIndex, newIndex){
-
-    if(newIndex > oldIndex){
+  _updateQuiz(oldIndex, newIndex) {
+    if (newIndex > oldIndex) {
       newIndex -= 1;
     }
 
     final String answer = answers.removeAt(oldIndex);
     answers.insert(newIndex, answer);
 
-    bool radioValueChangedPosition = ((_radioValue1 - oldIndex) * (_radioValue1 - newIndex)) <= 0;
-    if(oldIndex == _radioValue1)
+    bool radioValueChangedPosition = ((_radioValue1 - oldIndex) *
+        (_radioValue1 - newIndex)) <= 0;
+    if (oldIndex == _radioValue1)
       _radioValue1 = newIndex;
-    else if (radioValueChangedPosition){
-      if (newIndex > _radioValue1)
+    else if (radioValueChangedPosition) {
+      if (oldIndex < _radioValue1)
         _radioValue1--;
-      else _radioValue1++;
+      else
+        _radioValue1++;
     }
   }
 
@@ -130,7 +174,7 @@ class _QuizEdit extends State<QuizEdit> {
       return;
     }
     setState(() {
-      answers.add('Broas i Q ta tudo, ya? ' +answers.length.toString());
+      answers.add('Broas i Q ta tudo, ya? ' + answers.length.toString());
     });
   }
 
@@ -139,26 +183,6 @@ class _QuizEdit extends State<QuizEdit> {
       _radioValue1 = value;
     });
   }
-  
-
-}
-
-class AnswerList extends StatefulWidget{
-  @override
-
-  State<StatefulWidget> createState() {
-    return _AnswerListState();
-  }
-
-}
-
-class _AnswerListState extends State<AnswerList> {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return null;
-  }
-
 }
 /*
 class InformationCard extends StatefulWidget {
