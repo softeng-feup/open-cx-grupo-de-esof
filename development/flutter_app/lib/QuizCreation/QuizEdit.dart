@@ -34,11 +34,19 @@ class _QuizEdit extends State<QuizEdit> {
             flex: 2,
             child: Container(
               padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Colors.blue,
+                  border: Border.all(
+                    width: 5,
+                    color: Colors.black,
+                  )
+              ),
               child: Center(
                 child: Text(
                     this.question,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
+                      fontSize: 20,
 
                     )
                 ),
@@ -82,40 +90,61 @@ class _AnswerListState extends State<AnswerList> {
           Expanded(flex: 16,
             child: ReorderableListView(
               children: List.generate(answers.length, (index) {
+                int count = index + 1;
                 return Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.lightBlue,
-                      width: 2,
-                    ),
+                  padding: EdgeInsets.only(
+                    top: 5,
+                    bottom: 5,
+                    right: 10,
+                    left: 10,
                   ),
                   height: 100,
-                  padding: EdgeInsets.all(2),
+                  //padding: EdgeInsets.all(5),
                   key: ValueKey("value$index"),
-                  child: Row(children:
-                  [
-                    Container(
-                      width: 100.0,
-                      height: double.infinity,
-                      color: Colors.black,
-                      child: Radio(
-                        value: index,
-                        groupValue: _radioValue1,
-                        onChanged: _handleRadioValueChange1,
-                        activeColor: Colors.green,
+                  child: Container(
+
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 3,
                       ),
                     ),
+                    child: Row(children:
+                    [
+                      Container(
+                        width: 100.0,
+                        height: double.infinity,
+                        color: Colors.black,
+                        child: Radio(
+                          value: index,
+                          groupValue: _radioValue1,
+                          onChanged: _handleRadioValueChange1,
+                          activeColor: Colors.green,
+                        ),
+                      ),
 
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(flex: 1, child: Text("Answer nº $index\n"),),
-                        Expanded(flex: 5, child: Text(answers[index]),),
+                      Container(
+                        width: 285,
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(flex: 1, child: Text("Answer nº $count\n" ),),
+                            Container(
+                              height: 40, child: EditableAnswer(
+                                initialAnswer: answers[index],
+                                onChanged: (String newAnswer) =>
+                                    _updateAnswer(newAnswer, index)),
+                            ),
 
-                      ],
+                          ],
+                        ),
+                      ),
+                    ]
                     ),
-                  ]
                   ),
+
                 );
               }),
 
@@ -140,7 +169,7 @@ class _AnswerListState extends State<AnswerList> {
 
           Expanded(
             flex: 1,
-            child: Container(),
+            child: Container(child: Center( child: Container(),)),
           )
         ]
     );
@@ -178,119 +207,75 @@ class _AnswerListState extends State<AnswerList> {
     });
   }
 
+  _updateAnswer(String string, int index){
+      answers.removeAt(index);
+      answers.insert(index, string);
+  }
+
   _handleRadioValueChange1(int value) {
     setState(() {
       _radioValue1 = value;
     });
   }
 }
-/*
-class InformationCard extends StatefulWidget {
 
+class EditableAnswer extends StatefulWidget{
 
-  final ExtraInfo extraInfo;
-  final Color color;
+  final ValueChanged<String> onChanged;
+  final String initialAnswer;
 
-  InformationCard({Key key, infoName = '',  info = ''}) :
-        color = Colors.primaries[Random().nextInt(Colors.primaries.length)],
-        extraInfo = ExtraInfo(infoName, info), super(key: key);
+  EditableAnswer({Key key, @required this.onChanged, this.initialAnswer = ''}): super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return new _InformationCardState(extraInfo);
+    return _EditableAnswerState(this.initialAnswer);
   }
-
-
 }
 
-//AutomaticKeepAlive used to stop List View from deleting information
-class _InformationCardState extends State<InformationCard> with AutomaticKeepAliveClientMixin{
+class _EditableAnswerState extends State<EditableAnswer>{
 
-  TextEditingController infoNameController;
-  TextEditingController infoController;
-  ExtraInfo extraInfo;
-  FocusNode myFocusNode1;
-  FocusNode myFocusNode2;
 
-  _InformationCardState(ExtraInfo extraInfo) : super(){
-    this.extraInfo = extraInfo;
-    infoNameController = TextEditingController(text: extraInfo.infoType);
-    infoController = TextEditingController(text: extraInfo.info);
+  TextEditingController controller;
+  String currAnswer;
+  FocusNode myFocusNode;
+
+  _EditableAnswerState(this.currAnswer): super() {
+    controller = TextEditingController(text: this.currAnswer);
   }
 
   @override
   void initState() {
     super.initState();
-    myFocusNode1 = FocusNode();
-    myFocusNode2 = FocusNode();
-  }
-
-  void dispose() {
-    myFocusNode1.dispose();
-    myFocusNode2.dispose();
-    super.dispose();
+    myFocusNode = FocusNode();
   }
 
   @override
+  void dispose() {
+    myFocusNode.dispose();
+    super.dispose();
+  }
+
+
+  @override
   Widget build(BuildContext context) {
-    // TODO: make it prettier
-    super.build(context);
-    return Container(
-      decoration: BoxDecoration(
-        color: widget.color,
-        border: Border.all(
-          color: Colors.blue,
-          width: 2,
-        ),
+    return TextField(
+      controller: controller,
+      onChanged: _updateName,
+      decoration: InputDecoration(
+        hintText: 'Insert Answer',
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextField(
-            controller: infoNameController,
-//              onChanged: _handleSubmission,
-            onChanged: _updateName,
-            decoration: InputDecoration(
-              hintText: 'Contact Type',
-            ),
-            style: TextStyle(
-              fontSize: 24,
-              color: Colors.black,
-            ),
-          ),
-
-
-          TextField(
-            controller: infoController,
-//              onChanged: _handleSubmission,
-            onChanged: _updateInfo,
-            decoration: InputDecoration(
-              hintText: 'Contact',
-            ),
-            style: TextStyle(
-              fontSize: 24,
-              color: Colors.black,
-            ),
-          ),
-        ],
+      style: TextStyle(
+        fontSize: 24,
+        color: Colors.black,
       ),
     );
   }
 
-  _updateInfo(String text) {
+  void _updateName(String value){
     setState(() {
-      extraInfo.info = text;
+      this.currAnswer = value;
     });
+    widget.onChanged(value);
   }
 
-  _updateName(String text) {
-    setState(() {
-      extraInfo.infoType = text;
-    });
-  }
-
-  @override
-  bool get wantKeepAlive => true;
-
-}*/
+}

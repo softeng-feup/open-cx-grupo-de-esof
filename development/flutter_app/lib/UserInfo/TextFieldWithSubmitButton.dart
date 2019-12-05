@@ -36,6 +36,13 @@ class _TextFieldWithSubmitButtonState extends State<TextFieldWithSubmitButton> {
     myFocusNode = FocusNode();
   }
 
+
+  @override
+  void dispose() {
+    myFocusNode.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
 
