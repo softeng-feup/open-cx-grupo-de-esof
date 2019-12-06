@@ -2,28 +2,39 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class QuizEdit extends StatefulWidget {
+import 'QuestionInfo.dart';
 
+class QuestionEdit extends StatefulWidget {
+
+  final QuestionInfo questionInfo;
+
+  QuestionEdit({Key key, @required this.questionInfo}): super(key: key);
 
 
   @override
-  State<QuizEdit> createState() {
-    return new _QuizEdit(question: 'Ya like Jaaaazzzz? The quantic dream tells you where the sweet, luscious jazz is :)');
+  State<QuestionEdit> createState() {
+    return new _QuestionEdit(question: questionInfo.question);
   }
 }
 
-class _QuizEdit extends State<QuizEdit> {
+class _QuestionEdit extends State<QuestionEdit> {
 
 
   String question;
 
+  TextEditingController controller;
+
+  AnswerList answerList = AnswerList();
+  int correctAnswer = 0;
 
 
-  _QuizEdit({this.question = 'Novo Quiz'});
+
+  _QuestionEdit({this.question = 'New Question'}): super() {
+    controller = TextEditingController(text: this.question);
+  }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       width: double.infinity,
       height: double.infinity,
@@ -33,7 +44,7 @@ class _QuizEdit extends State<QuizEdit> {
           Expanded(
             flex: 2,
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(0),
               decoration: BoxDecoration(
                   color: Colors.blue,
                   border: Border.all(
@@ -42,27 +53,70 @@ class _QuizEdit extends State<QuizEdit> {
                   )
               ),
               child: Center(
-                child: Text(
-                    this.question,
+                child: TextField(
+                    maxLines: null,
+                    controller: controller,
+                    onChanged: _updateQuestion,
+                    decoration: InputDecoration(
+                    hintText: 'Insert Question',
+                    ),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-
-                    )
-                ),
+                    ),
+                )
               ),
             ),
           ),
           Expanded(
             flex: 8,
-            child: AnswerList(),
+            child: answerList,
           ),
+
+          Container(
+            height: 20,
+            child: RaisedButton(
+              color: Colors.lightBlueAccent,
+              onPressed: () {
+                _sendDataBack(context);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Text(
+                      'Submit',
+                      style: TextStyle(fontSize: 24),
+                    ),
+                  ),
+
+                  Expanded(
+                    child: Icon(Icons.send),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
         ],
       ),
     );
   }
-  
 
+  _updateQuestion(String value){
+    setState(() {
+      this.question = value;
+    });
+  }
+
+  QuestionInfo _getQuizInfo(){
+    QuestionInfo quizInfo = new QuestionInfo(this.question);
+    return quizInfo;
+  }
+
+  void _sendDataBack(BuildContext context) {
+    Navigator.pop(context, _getQuizInfo());
+  }
 }
 
 class AnswerList extends StatefulWidget{
@@ -73,7 +127,6 @@ class AnswerList extends StatefulWidget{
   State<StatefulWidget> createState() {
     return _AnswerListState(answers: this.answers);
   }
-
 }
 
 class _AnswerListState extends State<AnswerList> {
@@ -98,7 +151,7 @@ class _AnswerListState extends State<AnswerList> {
                     right: 10,
                     left: 10,
                   ),
-                  height: 100,
+                  height: 150,
                   //padding: EdgeInsets.all(5),
                   key: ValueKey("value$index"),
                   child: Container(
@@ -130,9 +183,9 @@ class _AnswerListState extends State<AnswerList> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Expanded(flex: 1, child: Text("Answer nº $count\n" ),),
+                            Container(height: 20, child: Text("Answer nº $count\n" ),),
                             Container(
-                              height: 40, child: EditableAnswer(
+                              height: 80, child: EditableAnswer(
                                 initialAnswer: answers[index],
                                 onChanged: (String newAnswer) =>
                                     _updateAnswer(newAnswer, index)),
@@ -150,7 +203,7 @@ class _AnswerListState extends State<AnswerList> {
 
               onReorder: (int oldIndex, int newIndex) {
                 setState(() {
-                  _updateQuiz(oldIndex, newIndex);
+                  _updateQuestion(oldIndex, newIndex);
                 });
               },
             ),
@@ -175,7 +228,7 @@ class _AnswerListState extends State<AnswerList> {
     );
   }
 
-  _updateQuiz(oldIndex, newIndex) {
+  _updateQuestion(oldIndex, newIndex) {
     if (newIndex > oldIndex) {
       newIndex -= 1;
     }
@@ -203,7 +256,7 @@ class _AnswerListState extends State<AnswerList> {
       return;
     }
     setState(() {
-      answers.add('Broas i Q ta tudo, ya? ' + answers.length.toString());
+      answers.add('');
     });
   }
 
@@ -259,13 +312,14 @@ class _EditableAnswerState extends State<EditableAnswer>{
   @override
   Widget build(BuildContext context) {
     return TextField(
+      maxLines: null,
       controller: controller,
       onChanged: _updateName,
       decoration: InputDecoration(
         hintText: 'Insert Answer',
       ),
       style: TextStyle(
-        fontSize: 24,
+        fontSize: 15,
         color: Colors.black,
       ),
     );

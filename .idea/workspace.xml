@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b30d532-c3c1-4ddf-80ca-20bd8e6035ac" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEdit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEdit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/UserInfo/TextFieldWithSubmitButton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/UserInfo/TextFieldWithSubmitButton.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/Pages/HomePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/Pages/HomePage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizCreation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionEditScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEdit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionEdit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/main.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,16 +27,34 @@
         <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserInfo/screens.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="139">
-              <caret line="134" column="2" selection-start-line="134" selection-start-column="2" selection-end-line="138" selection-end-column="3" />
+              <caret line="436" column="19" selection-start-line="436" selection-start-column="8" selection-end-line="436" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEdit.dart">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserMainScreen/UserMainScreen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="132" column="77" selection-start-line="132" selection-start-column="77" selection-end-line="132" selection-end-column="77" />
+            <state relative-caret-position="-699">
+              <caret line="24" column="38" lean-forward="true" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/Pages/HomePage.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionEdit.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="78" column="44" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
               <folding>
                 <element signature="e#1#41#0" expanded="true" />
               </folding>
@@ -42,21 +63,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserInfo/TextFieldWithSubmitButton.dart">
+        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionEditScreen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="43" column="3" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
+            <state relative-caret-position="161">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="e#2#42#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/main.dart">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEditScreen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="28" />
+            <state relative-caret-position="230">
+              <caret line="44" column="47" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
               <folding>
-                <element signature="e#162#201#0" expanded="true" />
+                <element signature="e#2#42#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,22 +96,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/Pages/HomePage.dart">
+        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+            <state relative-caret-position="238">
+              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+              <folding>
+                <element signature="e#162#201#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/Pages/StandCodePage.dart">
+        <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionInfo.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1241">
-              <caret line="78" column="6" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -103,9 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>app</find>
-      <find>first screen</find>
-      <find>firstscreen</find>
       <find>itemCount</find>
       <find>raised</find>
       <find>question</find>
@@ -126,7 +147,16 @@
       <find>this.field</find>
       <find>onChanged</find>
       <find>textfield</find>
+      <find>update</find>
+      <find>text</find>
       <find>dispose</find>
+      <find>screen</find>
+      <find>Quiz</find>
+      <find>super(key)</find>
+      <find>sendDataBack</find>
+      <find>firstScreen</find>
+      <find>awaitReturn</find>
+      <find>scaffold</find>
     </findStrings>
     <replaceStrings>
       <replace>answer</replace>
@@ -144,27 +174,23 @@
         <option value="$PROJECT_DIR$/development/flutter_app/lib/UserScreen/UserMainScreen.dart" />
         <option value="$PROJECT_DIR$/development/flutter_app/lib/UserInfo/UserMainScreen.dart" />
         <option value="$PROJECT_DIR$/development/flutter_app/lib/UserMainScreen/UserMainScreen.dart" />
-        <option value="$PROJECT_DIR$/development/flutter_app/lib/Pages/HomePage.dart" />
         <option value="$PROJECT_DIR$/development/flutter_app/test/widget_test.dart" />
-        <option value="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizCreation.dart" />
-        <option value="$PROJECT_DIR$/development/flutter_app/lib/main.dart" />
         <option value="$PROJECT_DIR$/development/flutter_app/lib/Pages/StandCodePage.dart" />
-        <option value="$PROJECT_DIR$/development/flutter_app/lib/UserInfo/screens.dart" />
         <option value="$PROJECT_DIR$/development/flutter_app/lib/UserInfo/TextFieldWithSubmitButton.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/UserInfo/screens.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizInfo.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionInfo.dart" />
         <option value="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEdit.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizCreation.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionEdit.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionEditScreen.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/main.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/Pages/HomePage.dart" />
+        <option value="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEditScreen.dart" />
       </list>
     </option>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="65" />
     <option name="y" value="35" />
     <option name="width" value="1400" />
@@ -175,6 +201,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -244,7 +271,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -328,7 +354,7 @@
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.3286119" />
       <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49932885" weight="0.3286119" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49932885" weight="0.35835695" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.50067115" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Flutter Performance" order="7" side_tool="true" />
@@ -344,42 +370,36 @@
       <window_info anchor="right" id="Assistant" order="5" weight="0.33507463" />
       <window_info anchor="right" id="Flutter Outline" order="6" weight="0.3295302" />
     </layout>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEdit.dart</url>
-          <line>226</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEdit.dart</url>
-          <line>260</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEdit.dart</url>
-          <line>258</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEdit.dart</url>
-          <line>274</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEdit.dart</url>
-          <line>137</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEdit.dart</url>
-          <line>242</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <layout-to-restore>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4978903" visible="true" weight="0.32885906" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Build Variants" order="3" sideWeight="0.5021097" side_tool="true" weight="0.32885906" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Designer" order="5" />
+      <window_info id="Resources Explorer" order="6" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Favorites" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.49932885" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Logcat" order="1" weight="0.3286119" />
+      <window_info anchor="bottom" id="TODO" order="2" weight="0.3286119" />
+      <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49932885" weight="0.35835695" />
+      <window_info anchor="bottom" id="Terminal" order="5" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.50067115" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Flutter Performance" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Dart Analysis" order="9" weight="0.3286119" />
+      <window_info anchor="bottom" id="Find" order="10" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3286119" />
+      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Flutter Inspector" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Assistant" order="5" weight="0.33507463" />
+      <window_info anchor="right" id="Flutter Outline" order="6" weight="0.3295302" />
+    </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/development/flutter_app/pubspec.lock" />
@@ -399,13 +419,6 @@
           <folding>
             <element signature="e#357#396#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserMainScreen/UserMainScreen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="63" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -454,20 +467,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/main.dart">
+    <entry file="file://C:/flutter/packages/flutter/lib/src/widgets/framework.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="28" />
-          <folding>
-            <element signature="e#162#201#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="149">
+          <caret line="4046" column="20" selection-start-line="4046" selection-start-column="20" selection-end-line="4046" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/app.dart">
+    <entry file="file://C:/flutter/packages/flutter/lib/src/services/text_input.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+        <state relative-caret-position="149">
+          <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserInfo/TextFieldWithSubmitButton.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="43" column="3" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -481,50 +498,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/Pages/HomePage.dart">
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionInfo.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizCreation.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-          <folding>
-            <element signature="e#2#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/flutter/packages/flutter/lib/src/widgets/framework.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="4046" column="20" selection-start-line="4046" selection-start-column="20" selection-end-line="4046" selection-end-column="20" />
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserInfo/screens.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
-          <caret line="134" column="2" selection-start-line="134" selection-start-column="2" selection-end-line="138" selection-end-column="3" />
+          <caret line="436" column="19" selection-start-line="436" selection-start-column="8" selection-end-line="436" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserInfo/TextFieldWithSubmitButton.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="43" column="3" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEdit.dart">
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionEditScreen.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
-          <caret line="132" column="77" selection-start-line="132" selection-start-column="77" selection-end-line="132" selection-end-column="77" />
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#2#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/UserMainScreen/UserMainScreen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-699">
+          <caret line="24" column="38" lean-forward="true" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/app.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding>
+            <element signature="e#162#201#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/Pages/HomePage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionEdit.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="78" column="44" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
           <folding>
             <element signature="e#1#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEditScreen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="44" column="47" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
+          <folding>
+            <element signature="e#2#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
