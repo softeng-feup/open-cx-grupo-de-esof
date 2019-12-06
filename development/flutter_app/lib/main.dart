@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 
 import 'app.dart';
 
-import 'userInfo/screens.dart';
+import 'UserInfo/screens.dart';
 
 
 void main() {

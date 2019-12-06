@@ -17,7 +17,21 @@ class HomePage extends StatelessWidget {
         ),
             body: Center(
                 child: Column(children: <Widget>[
-                  ScanQR_button(),
+                  RichText(
+                    text: TextSpan(
+                      text: 'QuizApp',
+                      style: TextStyle(fontWeight: FontWeight.bold,
+                        fontSize: 50,
+                        color: Colors.lightBlue
+                      ),
+                    ),
+                  ),
+                  Padding(padding: EdgeInsets.only(top: 40.0)),
+                  User_button(),
+                  Padding(padding: EdgeInsets.only(top: 40.0)),
+                  Company_button(),
+                  Padding(padding: EdgeInsets.only(top: 40.0)),
+                  Organizer_button()
                 ])
       ),
       )
@@ -26,11 +40,11 @@ class HomePage extends StatelessWidget {
 }
 
 
-class ScanQR_button extends StatelessWidget {
+class User_button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      color: Colors.black,
+      color: Colors.lightBlue,
       textColor: Colors.white,
       disabledColor: Colors.grey,
       disabledTextColor: Colors.black,
@@ -42,6 +56,78 @@ class ScanQR_button extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           text: "I'm a user",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        textScaleFactor: 2,
+      ),
+    );
+  }
+
+  _buttonTap(BuildContext context) {
+    // Nao funciona, nao sei porque
+    //Navigator.pushNamed(context, page1.routeName);
+
+    Navigator.push(context, new MaterialPageRoute(
+        builder: (context) =>
+        new UserMainScreen())
+    );
+  }
+}
+
+class Organizer_button extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+      color: Colors.lightBlue,
+      textColor: Colors.white,
+      disabledColor: Colors.grey,
+      disabledTextColor: Colors.black,
+      padding: EdgeInsets.all(8.0),
+      splashColor: Colors.blue,
+      onPressed: () {
+        _buttonTap(context);
+      },
+      child: RichText(
+        text: TextSpan(
+          text: "I'm a company",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        textScaleFactor: 2,
+      ),
+    );
+  }
+
+  _buttonTap(BuildContext context) {
+    // Nao funciona, nao sei porque
+    //Navigator.pushNamed(context, page1.routeName);
+
+    Navigator.push(context, new MaterialPageRoute(
+        builder: (context) =>
+        new UserMainScreen())
+    );
+  }
+}
+
+class Company_button extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+      color: Colors.lightBlue,
+      textColor: Colors.white,
+      disabledColor: Colors.grey,
+      disabledTextColor: Colors.black,
+      padding: EdgeInsets.all(8.0),
+      splashColor: Colors.blue,
+      onPressed: () {
+        _buttonTap(context);
+      },
+      child: RichText(
+        text: TextSpan(
+          text: "I'm a organizer",
           style: TextStyle(
             color: Colors.white,
           ),
