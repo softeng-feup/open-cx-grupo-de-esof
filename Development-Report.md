@@ -47,18 +47,13 @@ The quizzes' main objective, besides making the player curious and actively look
 
 (colocar o diagrama)
 
-Create a use-case diagram in UML with all high-level use cases possibly addressed by your module.
-
-Give each use case a concise, results-oriented name. Use cases should reflect the tasks the user needs to be able to accomplish using the system. Include an action verb and a noun. 
-
-Briefly describe each use case mentioning the following:
-
 * **Actor**. Conference participant
 * **Description**. Accessing and answering a quiz available through codes in a company's booth. 
 * **Preconditions and Postconditions**. The user must get the code and either read is as a QR code or insert the code manually to access the quiz. After answering the quiz the user can review the answers but can't retake it. 
 
 * **Normal Flow**. The user must log in or create account, go to a booth with a code, read the code as QR code or insert it manually(in case QR fails), answer the quiz and submit the answers, get the results. 
 * **Alternative Flows and Exceptions**. In the log in the system should detect invalid username/password combinations just as it should detect repeated usernames when creating a new account. The response to these issues should always be asking for a new input. When trying to access a quiz, an invalid code will generate more or less the same response.
+
 
 * **Actor**. Sponsoring Company
 * **Description**. Crete a multiple question quiz to be answered by the conference participants. 
