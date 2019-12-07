@@ -52,7 +52,11 @@ class HomePage extends StatelessWidget {
 
 
 class Login_Form extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
+  static final _formKey = new GlobalKey<FormState>();
+
+  String _password;
+
+  String _username;
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +82,7 @@ class Login_Form extends StatelessWidget {
               }
               return null;
             },
+            onSaved: (value) => _username = value,
           ),
           Padding(padding: EdgeInsets.only(top: 40.0)),
           RichText(
@@ -96,6 +101,8 @@ class Login_Form extends StatelessWidget {
               }
               return null;
             },
+              onSaved: (value) => _password = value,
+            obscureText:true
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -105,6 +112,9 @@ class Login_Form extends StatelessWidget {
                 // the form is invalid.
                 if (_formKey.currentState.validate()) {
                   // Process data.
+                  _formKey.currentState.save();
+                  print(_username);
+                  print(_password);
                 }
               },
               child: Text('Submit'),
