@@ -40,38 +40,69 @@ class _QuizEditScreenState extends State<QuizEditScreen> {
 
 
               Expanded(flex: 16,
-                child: ReorderableListView(
-                  children: List.generate(quiz.length, (index) {
-                    return Container(
-                      padding: EdgeInsets.only(
-                        top: 5,
-                        bottom: 5,
-                        right: 10,
-                        left: 10,
-                      ),
-                      height: 150,
-                      //padding: EdgeInsets.all(5),
-                      key: ValueKey("value$index"),
-                      child: Container(
-
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                          border: Border.all(
-                            color: Colors.black,
-                            width: 3,
-                          ),
+                child: Container(
+                  padding: EdgeInsets.only(
+                    top: 10,
+                    bottom: 10,
+                  ),
+                  child: ReorderableListView(
+                    children: List.generate(quiz.length, (index) {
+                      return Container(
+                        padding: EdgeInsets.only(
+                          top: 5,
+                          bottom: 5,
+                          right: 10,
+                          left: 10,
                         ),
-                        child: QuestionCard(questionInfo: quiz[index]),
+                        height: 150,
+                        //padding: EdgeInsets.all(5),
+                        key: ValueKey("value$index"),
+                        child: Container(
+
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 3,
+                            ),
+                          ),
+                          child: QuestionCard(questionInfo: quiz[index]),
+                        ),
+
+                      );
+                    }),
+
+                    onReorder: (int oldIndex, int newIndex) {
+                      setState(() {
+                        _updateQuestion(oldIndex, newIndex);
+                      });
+                    },
+                  ),
+                ),
+              ),
+
+              Container(
+                height: 50,
+                child: RaisedButton(
+                  color: Colors.lightBlueAccent,
+                  onPressed: () {
+                    _sendDataBack(context);
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Submit',
+                          style: TextStyle(fontSize: 24),
+                        ),
                       ),
 
-                    );
-                  }),
-
-                  onReorder: (int oldIndex, int newIndex) {
-                    setState(() {
-                      _updateQuestion(oldIndex, newIndex);
-                    });
-                  },
+                      Expanded(
+                        child: Icon(Icons.send),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ]
@@ -93,6 +124,11 @@ class _QuizEditScreenState extends State<QuizEditScreen> {
     setState(() {
       quiz.add(QuestionInfo('New Question'));
     });
+  }
+
+  //TODO: IMPLEMENT SEND DATA BACK
+  void _sendDataBack(BuildContext context) {
+    Navigator.pop(context);
   }
 
 }

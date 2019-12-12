@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b30d532-c3c1-4ddf-80ca-20bd8e6035ac" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionEdit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionEdit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionInfo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionInfo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEditScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEditScreen.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionEdit.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="153" column="38" selection-start-line="153" selection-start-column="34" selection-end-line="153" selection-end-column="38" />
+            <state relative-caret-position="139">
+              <caret line="121" column="2" lean-forward="true" selection-start-line="121" selection-start-column="2" selection-end-line="123" selection-end-column="3" />
               <folding>
                 <element signature="e#1#41#0" expanded="true" />
               </folding>
@@ -55,8 +52,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEditScreen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="128" column="12" lean-forward="true" selection-start-line="128" selection-start-column="12" selection-end-line="128" selection-end-column="12" />
+            <state relative-caret-position="68">
+              <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
               <folding>
                 <element signature="e#2#42#0" expanded="true" />
               </folding>
@@ -84,8 +81,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>borderD</find>
-      <find>State&lt;</find>
       <find>title</find>
       <find>createState</find>
       <find>center</find>
@@ -114,6 +109,8 @@
       <find>onchanged</find>
       <find>_radioValue</find>
       <find>view</find>
+      <find>submit</find>
+      <find>sendData</find>
     </findStrings>
     <replaceStrings>
       <replace>answer</replace>
@@ -553,13 +550,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionEdit.dart">
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionInfo.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="153" column="38" selection-start-line="153" selection-start-column="34" selection-end-line="153" selection-end-column="38" />
-          <folding>
-            <element signature="e#1#41#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="289">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -570,17 +564,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionInfo.dart">
+    <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuestionEdit.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        <state relative-caret-position="139">
+          <caret line="121" column="2" lean-forward="true" selection-start-line="121" selection-start-column="2" selection-end-line="123" selection-end-column="3" />
+          <folding>
+            <element signature="e#1#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/development/flutter_app/lib/QuizCreation/QuizEditScreen.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="128" column="12" lean-forward="true" selection-start-line="128" selection-start-column="12" selection-end-line="128" selection-end-column="12" />
+        <state relative-caret-position="68">
+          <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
           <folding>
             <element signature="e#2#42#0" expanded="true" />
           </folding>
