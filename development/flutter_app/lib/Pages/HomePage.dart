@@ -1,11 +1,41 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app/UserMainScreen/UserMainScreen.dart';
-import 'StandCodePage.dart';
-import 'HomePage.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
-class HomePage extends StatelessWidget {
+
+Future<Post> fetchPost() async {
+  final response =
+  await http.get('https://jsonplaceholder.typicode.com/posts/1');
+
+  if (response.statusCode == 200) {
+    // If the call to the server was successful, parse the JSON.
+    return Post.fromJson(json.decode(response.body));
+  } else {
+    // If that call was not successful, throw an error.
+    throw Exception('Failed to load post');
+  }
+}
+
+class HomePage extends StatefulWidget {
+  HomePage( {Key key}) : super(key: key);
+
   static const String routeName = "/";
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  Future<Post> post;
+
+  @override
+  void initState() {
+    super.initState();
+    post = fetchPost();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,33 +46,47 @@ class HomePage extends StatelessWidget {
             title: Text('QuizApp'),
           ),
           body: Center(
-              child: Column(children: <Widget>[
-                Padding(padding: EdgeInsets.only(top: 40.0)),
-                RichText(
-                  text: TextSpan(
-                    text: 'QuizApp',
-                    style: TextStyle(fontWeight: FontWeight.bold,
-                        fontSize: 50,
-                        color: Colors.lightBlue
+              child: Column(
+                  children: <Widget>[
+                    FutureBuilder<Post>(
+                      future: post,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          return Text(snapshot.data.username);
+                        } else if (snapshot.hasError) {
+                          return Text("${snapshot.error}");
+                        }
+
+                        // By default, show a loading spinner.
+                        return null;
+                      },
                     ),
-                  ),
-                ),
-                Padding(padding: EdgeInsets.only(top: 40.0)),
-                  RichText(
-                    text: TextSpan(
-                      text: 'Login',
-                      style: TextStyle(
-                          fontSize: 35,
-                          color: Colors.black,
+                    Padding(padding: EdgeInsets.only(top: 40.0)),
+                    RichText(
+                      text: TextSpan(
+                        text: 'QuizApp',
+                        style: TextStyle(fontWeight: FontWeight.bold,
+                            fontSize: 50,
+                            color: Colors.lightBlue
+                        ),
                       ),
                     ),
-                  ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Login_Form(),
-                ),
-                Padding(padding: EdgeInsets.only(top: 40.0)),
-                Create_Account_Button()
+                    Padding(padding: EdgeInsets.only(top: 40.0)),
+                      RichText(
+                        text: TextSpan(
+                          text: 'Login',
+                          style: TextStyle(
+                              fontSize: 35,
+                              color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Login_Form(),
+                    ),
+                    Padding(padding: EdgeInsets.only(top: 40.0)),
+                    Create_Account_Button()
               ])
           ),
         )
@@ -50,6 +94,19 @@ class HomePage extends StatelessWidget {
   }
 }
 
+class Post {
+  final String username;
+  final String password;
+
+  Post({this.username, this.password});
+
+  factory Post.fromJson(Map<String, dynamic> json) {
+    return Post(
+      username: json['username'],
+      password: json['password'],
+    );
+  }
+}
 
 class Login_Form extends StatelessWidget {
   static final _formKey = new GlobalKey<FormState>();
@@ -58,6 +115,14 @@ class Login_Form extends StatelessWidget {
 
   String _username;
 
+
+
+  void validateLogin(String username, String password) {
+    Future<Post> response = fetchPost();
+
+    //if (response.username == username)
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -65,7 +130,8 @@ class Login_Form extends StatelessWidget {
       child: Column(
         //mainAxisAlignment: MainAxisAlignment.values(List(5)),
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
+        children:
+        <Widget>[
           RichText(
             text: TextSpan(
               text: 'Username',
@@ -115,6 +181,7 @@ class Login_Form extends StatelessWidget {
                   _formKey.currentState.save();
                   print(_username);
                   print(_password);
+                  validateLogin(_username, _password);
                 }
               },
               child: Text('Submit'),
