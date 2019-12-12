@@ -13,24 +13,25 @@ class QuestionEdit extends StatefulWidget {
 
   @override
   State<QuestionEdit> createState() {
-    return new _QuestionEdit(question: questionInfo.question);
+    return new _QuestionEditState(questionInfo: questionInfo);
   }
 }
 
-class _QuestionEdit extends State<QuestionEdit> {
+class _QuestionEditState extends State<QuestionEdit> {
 
 
-  String question;
+  QuestionInfo questionInfo;
 
   TextEditingController controller;
 
-  AnswerList answerList = AnswerList();
+  AnswerList answerList;
   int correctAnswer = 0;
 
 
 
-  _QuestionEdit({this.question = 'New Question'}): super() {
-    controller = TextEditingController(text: this.question);
+  _QuestionEditState({this.questionInfo}): super() {
+    controller = TextEditingController(text: this.questionInfo.question);
+    answerList = AnswerList(questionInfo: questionInfo);
   }
 
   @override
@@ -42,7 +43,7 @@ class _QuestionEdit extends State<QuestionEdit> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
-            flex: 2,
+            flex: 3,
             child: Container(
               padding: EdgeInsets.all(0),
               decoration: BoxDecoration(
@@ -53,18 +54,19 @@ class _QuestionEdit extends State<QuestionEdit> {
                   )
               ),
               child: Center(
-                child: TextField(
+                  child: TextField(
                     maxLines: null,
                     controller: controller,
                     onChanged: _updateQuestion,
                     decoration: InputDecoration(
-                    hintText: 'Insert Question',
+                      hintText: 'Insert Question',
                     ),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
-                )
+                    textInputAction: TextInputAction.send,
+                  )
               ),
             ),
           ),
@@ -74,7 +76,7 @@ class _QuestionEdit extends State<QuestionEdit> {
           ),
 
           Container(
-            height: 20,
+            height: 50,
             child: RaisedButton(
               color: Colors.lightBlueAccent,
               onPressed: () {
@@ -98,6 +100,10 @@ class _QuestionEdit extends State<QuestionEdit> {
             ),
           ),
 
+          Container(
+            height: 10,
+          ),
+
         ],
       ),
     );
@@ -105,42 +111,46 @@ class _QuestionEdit extends State<QuestionEdit> {
 
   _updateQuestion(String value){
     setState(() {
-      this.question = value;
+      this.questionInfo.question = value;
     });
   }
 
-  QuestionInfo _getQuizInfo(){
-    QuestionInfo quizInfo = new QuestionInfo(this.question);
-    return quizInfo;
+  QuestionInfo _getQuestionInfo(){
+    return this.questionInfo;
   }
 
   void _sendDataBack(BuildContext context) {
-    Navigator.pop(context, _getQuizInfo());
+    Navigator.pop(context, _getQuestionInfo());
   }
 }
 
 class AnswerList extends StatefulWidget{
 
-  final List<String> answers = [];
+  final QuestionInfo questionInfo;
+
+  AnswerList({Key key, @required this.questionInfo}): super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _AnswerListState(answers: this.answers);
+    return _AnswerListState(this.questionInfo);
   }
 }
 
 class _AnswerListState extends State<AnswerList> {
 
-  int _radioValue1 = 0;
-  List<String> answers;
+  int _radioValue1;
 
-  _AnswerListState({@required this.answers});
+  _AnswerListState(QuestionInfo questionInfo):super(){
+    _radioValue1 = questionInfo.correctAnswer - 1;
+  }
 
   @override
   Widget build(BuildContext context) {
+
+    List<String> answers = widget.questionInfo.answers;
     return Column(
         children: [
-          Expanded(flex: 16,
+          Expanded(flex: 32,
             child: ReorderableListView(
               children: List.generate(answers.length, (index) {
                 int count = index + 1;
@@ -210,7 +220,7 @@ class _AnswerListState extends State<AnswerList> {
           ),
 
           Expanded(
-            flex: 2,
+            flex: 4,
             child: RaisedButton(
               shape: CircleBorder(),
               child: Icon(Icons.add),
@@ -229,6 +239,9 @@ class _AnswerListState extends State<AnswerList> {
   }
 
   _updateQuestion(oldIndex, newIndex) {
+
+    List<String> answers = widget.questionInfo.answers;
+
     if (newIndex > oldIndex) {
       newIndex -= 1;
     }
@@ -239,16 +252,17 @@ class _AnswerListState extends State<AnswerList> {
     bool radioValueChangedPosition = ((_radioValue1 - oldIndex) *
         (_radioValue1 - newIndex)) <= 0;
     if (oldIndex == _radioValue1)
-      _radioValue1 = newIndex;
+      _handleRadioValueChange1(newIndex);
     else if (radioValueChangedPosition) {
       if (oldIndex < _radioValue1)
-        _radioValue1--;
+        _handleRadioValueChange1(_radioValue1 - 1);
       else
-        _radioValue1++;
+        _handleRadioValueChange1(_radioValue1 + 1);
     }
   }
 
   _addAnswer() {
+    List<String> answers = widget.questionInfo.answers;
     if (answers.length == 4) {
       Scaffold.of(context)
           .showSnackBar(
@@ -260,15 +274,17 @@ class _AnswerListState extends State<AnswerList> {
     });
   }
 
-  _updateAnswer(String string, int index){
-      answers.removeAt(index);
-      answers.insert(index, string);
+  _updateAnswer(String string, int index) {
+    List<String> answers = widget.questionInfo.answers;
+    answers.removeAt(index);
+    answers.insert(index, string);
   }
 
   _handleRadioValueChange1(int value) {
     setState(() {
       _radioValue1 = value;
     });
+    widget.questionInfo.correctAnswer = _radioValue1 + 1;
   }
 }
 
@@ -322,6 +338,7 @@ class _EditableAnswerState extends State<EditableAnswer>{
         fontSize: 15,
         color: Colors.black,
       ),
+      textInputAction: TextInputAction.send,
     );
   }
 
