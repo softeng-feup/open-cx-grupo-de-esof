@@ -5,14 +5,44 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+class Post {
+  final String username;
+  final String password;
 
-Future<Post> fetchPost() async {
+  Post({this.username, this.password});
+
+  factory Post.fromJson(Map<String, dynamic> json) {
+    return Post(
+      //userId: json['userId'],
+      username: json['username'],
+      password: json['password'],
+    );
+  }
+}
+
+class PostList {
+  final List<Post> posts;
+
+  PostList({
+    this.posts,
+  });
+
+  factory PostList.fromJson(List<dynamic> parsedjson) {
+    List<Post> posts = new List<Post>();
+    posts = parsedjson.map((i)=>Post.fromJson(i)).toList();
+    return PostList(
+      posts: posts,
+    );
+  }
+}
+
+Future<PostList> fetchPost() async {
   final response =
-  await http.get('https://jsonplaceholder.typicode.com/posts/1');
+    await http.get('http://open-cx.herokuapp.com/users');
 
   if (response.statusCode == 200) {
     // If the call to the server was successful, parse the JSON.
-    return Post.fromJson(json.decode(response.body));
+    return PostList.fromJson(json.decode(response.body));
   } else {
     // If that call was not successful, throw an error.
     throw Exception('Failed to load post');
@@ -29,12 +59,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Future<Post> post;
+  Future<PostList> postlist;
 
   @override
   void initState() {
     super.initState();
-    post = fetchPost();
+    postlist = fetchPost();
   }
 
   @override
@@ -48,20 +78,20 @@ class _HomePageState extends State<HomePage> {
           body: Center(
               child: Column(
                   children: <Widget>[
-                    FutureBuilder<Post>(
-                      future: post,
+                    FutureBuilder<PostList>(
+                      future: postlist,
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
-                          return Text(snapshot.data.username);
+                          return Text(snapshot.data.posts[0].username);
                         } else if (snapshot.hasError) {
                           return Text("${snapshot.error}");
                         }
 
                         // By default, show a loading spinner.
-                        return null;
+                        return CircularProgressIndicator();;
                       },
                     ),
-                    Padding(padding: EdgeInsets.only(top: 40.0)),
+                   /* Padding(padding: EdgeInsets.only(top: 40.0)),
                     RichText(
                       text: TextSpan(
                         text: 'QuizApp',
@@ -87,6 +117,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Padding(padding: EdgeInsets.only(top: 40.0)),
                     Create_Account_Button()
+
+                    */
               ])
           ),
         )
@@ -94,19 +126,8 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class Post {
-  final String username;
-  final String password;
 
-  Post({this.username, this.password});
 
-  factory Post.fromJson(Map<String, dynamic> json) {
-    return Post(
-      username: json['username'],
-      password: json['password'],
-    );
-  }
-}
 
 class Login_Form extends StatelessWidget {
   static final _formKey = new GlobalKey<FormState>();
@@ -118,7 +139,7 @@ class Login_Form extends StatelessWidget {
 
 
   void validateLogin(String username, String password) {
-    Future<Post> response = fetchPost();
+    //Future<Post> response = fetchPost();
 
     //if (response.username == username)
   }

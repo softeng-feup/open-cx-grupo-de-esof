@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app/UserMainScreen/UserMainScreen.dart';
 import 'dart:async';
 import 'HomePage.dart';
 import '../app.dart';
@@ -27,9 +28,49 @@ class StandCodePage extends StatelessWidget {
               AdviceText(),
               SizedBox(height: 50),
               ScanQR_button(),
+              SizedBox(height: 50),
+              Continue_button(),
             ])
       ),
     )
+    );
+  }
+}
+
+class Continue_button extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+      color: Colors.black,
+      textColor: Colors.white,
+      disabledColor: Colors.grey,
+      disabledTextColor: Colors.black,
+      padding: EdgeInsets.all(8.0),
+      splashColor: Colors.blue,
+      onPressed: () {
+        _buttonTap(context);
+      },
+      child: RichText(
+        text: TextSpan(
+          text: 'Continue',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        textScaleFactor: 2,
+      ),
+    );
+  }
+
+  _buttonTap(BuildContext context) {
+    // Nao funciona, nao sei porque
+    //Navigator.pushNamed(context, page1.routeName);
+
+    // Send to backend Stand Code
+
+    Navigator.push(context, new MaterialPageRoute(
+        builder: (context) =>
+        new UserMainScreen())
     );
   }
 }
@@ -131,18 +172,3 @@ class _ScanQR_state extends State<ScanQR_button> {
     }
   }
 }
-
-/*
-
-  _buttonTap(BuildContext context) {
-    print("tapped!");
-
-    // Nao funciona, nao sei porque
-    //Navigator.pushNamed(context, page1.routeName);
-
-    Navigator.push(context, new MaterialPageRoute(
-        builder: (context) =>
-        new QRcodePage())
-    );
-  }
-  */
