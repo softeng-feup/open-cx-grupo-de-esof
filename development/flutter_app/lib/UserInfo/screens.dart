@@ -17,17 +17,17 @@ class ExtraInfoScreen extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return ExtraInfoScreenState(this.extraInfo);
+    return _ExtraInfoScreenState(this.extraInfo);
   }
 
 
 }
 
-class ExtraInfoScreenState extends State<ExtraInfoScreen> {
+class _ExtraInfoScreenState extends State<ExtraInfoScreen> {
 
   DynamicInfoWindow dynamicInfoWindow;
 
-  ExtraInfoScreenState(List<ExtraInfo> extraInfo) :
+  _ExtraInfoScreenState(List<ExtraInfo> extraInfo) :
         dynamicInfoWindow = DynamicInfoWindow.fromList(extraInfoToInformationCards(extraInfo)), super();
 
 

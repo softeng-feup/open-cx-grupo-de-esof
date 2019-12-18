@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/QuizCreation/QuizEditScreen.dart';
+import 'package:flutter_app/QuizCreation/QuizManagementScreen.dart';
 import 'package:flutter_app/UserMainScreen/UserMainScreen.dart';
 
 class HomePage extends StatelessWidget {
@@ -93,7 +93,7 @@ class CompanyButton extends StatelessWidget {
 
     Navigator.push(context, new MaterialPageRoute(
         builder: (context) =>
-        new QuizEditScreen())
+        new QuizManagementScreen(quizzes: []))
     );
   }
 }

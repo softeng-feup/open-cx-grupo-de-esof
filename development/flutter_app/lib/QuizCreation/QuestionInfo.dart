@@ -14,7 +14,7 @@ class QuestionInfo {
     this.correctAnswer = questionInfo.correctAnswer;
   }
 
-  addAnswer(String answer, bool isCorrect){
+  addAnswer(String answer){
     this.answers.add(answer);
   }
 

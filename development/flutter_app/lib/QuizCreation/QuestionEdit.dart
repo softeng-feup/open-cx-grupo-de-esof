@@ -8,7 +8,14 @@ class QuestionEdit extends StatefulWidget {
 
   final QuestionInfo questionInfo;
 
-  QuestionEdit({Key key, @required this.questionInfo}): super(key: key);
+  QuestionEdit({Key key, @required this.questionInfo}): super(key: key){
+
+    int answerNum = questionInfo.answers.length;
+    while (answerNum < 2){
+      questionInfo.addAnswer('');
+      answerNum = questionInfo.answers.length;
+    }
+  }
 
 
   @override
@@ -148,75 +155,77 @@ class _AnswerListState extends State<AnswerList> {
   Widget build(BuildContext context) {
 
     List<String> answers = widget.questionInfo.answers;
+    ReorderableListView listView = ReorderableListView(
+      children: List.generate(answers.length, (index) {
+        int count = index + 1;
+        return Container(
+          padding: EdgeInsets.only(
+            top: 5,
+            bottom: 5,
+            right: 10,
+            left: 10,
+          ),
+          height: 150,
+          //padding: EdgeInsets.all(5),
+          key: ValueKey("value$index"),
+          child: Container(
+
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              border: Border.all(
+                color: Colors.black,
+                width: 3,
+              ),
+            ),
+            child: Row(children:
+            [
+              Container(
+                width: 100.0,
+                height: double.infinity,
+                color: Colors.black,
+                child: Radio(
+                  value: index,
+                  groupValue: _radioValue1,
+                  onChanged: _handleRadioValueChange1,
+                  activeColor: Colors.green,
+                ),
+              ),
+
+              Container(
+                width: 200,
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(height: 20, child: Text("Answer nº $count\n" ),),
+                    Container(
+                      height: 70, child: EditableAnswer(
+                        initialAnswer: answers[index],
+                        onChanged: (String newAnswer) =>
+                            _updateAnswer(newAnswer, index)),
+                    ),
+
+                  ],
+                ),
+              ),
+            ]
+            ),
+          ),
+
+        );
+      }),
+
+      onReorder: (int oldIndex, int newIndex) {
+        setState(() {
+          _updateQuestion(oldIndex, newIndex);
+        });
+      },
+    );
+
     return Column(
         children: [
           Expanded(flex: 32,
-            child: ReorderableListView(
-              children: List.generate(answers.length, (index) {
-                int count = index + 1;
-                return Container(
-                  padding: EdgeInsets.only(
-                    top: 5,
-                    bottom: 5,
-                    right: 10,
-                    left: 10,
-                  ),
-                  height: 150,
-                  //padding: EdgeInsets.all(5),
-                  key: ValueKey("value$index"),
-                  child: Container(
-
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 3,
-                      ),
-                    ),
-                    child: Row(children:
-                    [
-                      Container(
-                        width: 100.0,
-                        height: double.infinity,
-                        color: Colors.black,
-                        child: Radio(
-                          value: index,
-                          groupValue: _radioValue1,
-                          onChanged: _handleRadioValueChange1,
-                          activeColor: Colors.green,
-                        ),
-                      ),
-
-                      Container(
-                        width: 285,
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(height: 20, child: Text("Answer nº $count\n" ),),
-                            Container(
-                              height: 80, child: EditableAnswer(
-                                initialAnswer: answers[index],
-                                onChanged: (String newAnswer) =>
-                                    _updateAnswer(newAnswer, index)),
-                            ),
-
-                          ],
-                        ),
-                      ),
-                    ]
-                    ),
-                  ),
-
-                );
-              }),
-
-              onReorder: (int oldIndex, int newIndex) {
-                setState(() {
-                  _updateQuestion(oldIndex, newIndex);
-                });
-              },
-            ),
+            child: listView,
           ),
 
           Expanded(
@@ -236,6 +245,8 @@ class _AnswerListState extends State<AnswerList> {
           )
         ]
     );
+
+
   }
 
   _updateQuestion(oldIndex, newIndex) {

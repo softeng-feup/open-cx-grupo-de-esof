@@ -2,27 +2,37 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/QuizCreation/QuizInfo.dart';
 
 import 'QuestionEditScreen.dart';
 import 'QuestionInfo.dart';
 
 class QuizEditScreen extends StatefulWidget {
+
+  final QuizInfo quizInfo;
+
+  QuizEditScreen({Key key, @required this.quizInfo}): super(key: key);
+
   @override
   State<StatefulWidget> createState() {
-    return _QuizEditScreenState();
+    return _QuizEditScreenState(quiz: quizInfo );
   }
 
 }
 
 class _QuizEditScreenState extends State<QuizEditScreen> {
 
-  List<QuestionInfo> quiz = [];
+  QuizInfo quiz;
+
+  _QuizEditScreenState({@required this.quiz}): super();
 
 
   @override
   Widget build(BuildContext context) {
+
+    List<QuestionInfo> questions = quiz.questions;
     return Scaffold(
-        appBar: AppBar(title: Text('User Info')),
+        appBar: AppBar(title: Text(quiz.quizName)),
         body: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -46,7 +56,7 @@ class _QuizEditScreenState extends State<QuizEditScreen> {
                     bottom: 10,
                   ),
                   child: ReorderableListView(
-                    children: List.generate(quiz.length, (index) {
+                    children: List.generate(questions.length, (index) {
                       return Container(
                         padding: EdgeInsets.only(
                           top: 5,
@@ -66,7 +76,7 @@ class _QuizEditScreenState extends State<QuizEditScreen> {
                               width: 3,
                             ),
                           ),
-                          child: QuestionCard(questionInfo: quiz[index]),
+                          child: QuestionCard(questionInfo: questions[index]),
                         ),
 
                       );
@@ -112,23 +122,24 @@ class _QuizEditScreenState extends State<QuizEditScreen> {
   }
 
   _updateQuestion(oldIndex, newIndex) {
+    List<QuestionInfo> questions = quiz.questions;
     if (newIndex > oldIndex) {
       newIndex -= 1;
     }
 
-    final QuestionInfo answer = quiz.removeAt(oldIndex);
-    quiz.insert(newIndex, answer);
+    final QuestionInfo answer = questions.removeAt(oldIndex);
+    questions.insert(newIndex, answer);
   }
 
   _addQuestion() {
     setState(() {
-      quiz.add(QuestionInfo('New Question'));
+      quiz.addQuestion(QuestionInfo('New Question'));
     });
   }
 
   //TODO: IMPLEMENT SEND DATA BACK
   void _sendDataBack(BuildContext context) {
-    Navigator.pop(context);
+    Navigator.pop(context, this.quiz);
   }
 
 }
@@ -202,6 +213,6 @@ class QuestionCard extends StatelessWidget{
         this.questionInfo = result;
     });*/
 
-    this.questionInfo.clone(result);
+    //this.questionInfo.clone(result);
   }
 }
