@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app/Data/quizz.dart';
 import 'dart:async';
+import 'AnswerQuiz.dart';
 import 'HomePage.dart';
 import '../app.dart';
 
@@ -99,6 +101,14 @@ class _ScanQR_state extends State<ScanQR_button> {
       splashColor: Colors.blue,
       onPressed: () {
         scan();
+        var questions = [["question1", "answer1", "answer2", "answer3"], ["question2", "answer1", "answer2", "answer3"], ["question3", "answer1", "answer2", "answer3"]];
+        var correct = [0, 1, 2];
+        var quiz = new Quiz.testCons(questions, correct);
+        Navigator.push(context, new MaterialPageRoute(
+            builder: (context) =>
+            new StartQuiz(quiz: quiz))
+        );
+
       },
       child: RichText(
         text: TextSpan(
