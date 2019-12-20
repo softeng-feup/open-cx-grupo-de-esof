@@ -2,10 +2,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/QuizCreation/QuizInfo.dart';
+import 'package:flutter_app/Data%20Structures/QuizInfo.dart';
 
 import 'QuestionEditScreen.dart';
-import 'QuestionInfo.dart';
+import '../Data Structures/QuestionInfo.dart';
 
 class QuizEditScreen extends StatefulWidget {
 

@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/QuizCreation/QuestionEdit.dart';
 
-import 'QuestionInfo.dart';
+import '../Data Structures/QuestionInfo.dart';
 
 
 class QuestionEditScreen extends StatelessWidget{

@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Pages/StandCodePage.dart';
-import 'package:flutter_app/UserInfo/ExtraInfo.dart';
+import 'package:flutter_app/Data%20Structures/ExtraInfo.dart';
 import 'package:flutter_app/UserInfo/screens.dart';
 
 
@@ -70,7 +70,7 @@ class _UserMainScreenState extends State<UserMainScreen> {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SecondScreen(username: username, phoneNumber: phone, email: email, extraInfo: extraInfo),
+          builder: (context) => SecondScreen(),
         ));
 
     // after the SecondScreen result comes back update the Text widget with it

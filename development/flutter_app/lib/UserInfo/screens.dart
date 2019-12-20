@@ -1,23 +1,23 @@
 import 'package:english_words/english_words.dart' as prefix0;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app/Data%20Structures/session.dart';
 import 'dart:math';
 
-import 'ExtraInfo.dart';
+import '../Data Structures/ExtraInfo.dart';
 import 'TextFieldWithSubmitButton.dart';
 
 
 
 class ExtraInfoScreen extends StatefulWidget {
 
-  final List<ExtraInfo> extraInfo;
-
-  ExtraInfoScreen({Key key, this.extraInfo}) :
+  ExtraInfoScreen({Key key}) :
         super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _ExtraInfoScreenState(this.extraInfo);
+    List<ExtraInfo> extraInfo = [];
+    return _ExtraInfoScreenState(extraInfo);
   }
 
 
@@ -282,27 +282,19 @@ class _DynamicInfoWindowState extends State<DynamicInfoWindow> {
 
 class SecondScreen extends StatefulWidget {
 
-  final String username;
-  final String phoneNumber;
-  final String email;
-  final List<ExtraInfo> extraInfo;
-  SecondScreen({Key key, this.username, this.email, this.phoneNumber, this.extraInfo}) : super(key: key);
+
+  SecondScreen({Key key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _SecondScreenState(this.username, this.phoneNumber, this.email, this.extraInfo);
+    return _SecondScreenState();
   }
 }
 
 class _SecondScreenState extends State<SecondScreen> {
   // this allows us to access the TextField text
 
-  String username;
-  String phoneNumber;
-  String email;
-  List<ExtraInfo> extraInfo;
-
-  _SecondScreenState(this.username, this.phoneNumber, this.email, this.extraInfo): super();
+  _SecondScreenState(): super();
 
   @override
   Widget build(BuildContext context) {
@@ -314,14 +306,14 @@ class _SecondScreenState extends State<SecondScreen> {
         children: [
 
           TextFieldWithSubmitButton(
-            field: this.username,
+            field: user.username,
             fieldType: 'Username',
             icon: Icon(Icons.person),
             onChanged: _updateUsername,
           ),
 
           TextFieldWithSubmitButton(
-            field: this.phoneNumber,
+            field: user.phoneNumber,
             fieldType: 'Phone Number',
             icon: Icon(Icons.phone),
             onChanged: _updatePhoneNumber,
@@ -329,7 +321,7 @@ class _SecondScreenState extends State<SecondScreen> {
           ),
 
           TextFieldWithSubmitButton(
-            field: this.email,
+            field: user.email,
             fieldType: 'E-mail',
             icon: Icon(Icons.email),
             onChanged: _updateEmail,
@@ -411,19 +403,19 @@ class _SecondScreenState extends State<SecondScreen> {
   // get the text in the TextField and send it back to the FirstScreen
   void _updateUsername(String username) {
     setState(() {
-      this.username = username;
+      user.setUsername(username);
     });
   }
 
   void _updatePhoneNumber(String phone) {
     setState(() {
-      this.phoneNumber = phone;
+      user.setPhoneNumber(phone);
     });
   }
 
   void _updateEmail(String email) {
     setState(() {
-      this.email = email;
+      user.setEmail(email);
     });
   }
 
@@ -431,7 +423,7 @@ class _SecondScreenState extends State<SecondScreen> {
 
   // get the text in the TextField and send it back to the FirstScreen
   void _sendDataBack(BuildContext context) {
-    Navigator.pop(context, [this.username, this.email, this.phoneNumber, this.extraInfo ]);
+    Navigator.pop(context);
   }
 
   void _awaitReturnValueFromExtraInfoScreen(BuildContext context) async {
@@ -440,13 +432,13 @@ class _SecondScreenState extends State<SecondScreen> {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ExtraInfoScreen(extraInfo: this.extraInfo),
+          builder: (context) => ExtraInfoScreen(),
         ));
 
     // after the SecondScreen result comes back update the Text widget with it
     setState(() {
       if (result != null)
-        this.extraInfo = result;
+        user.setExtraInfo(result);
     });
   }
 

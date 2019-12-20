@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app/Data%20Structures/session.dart';
 import 'dart:async';
+import 'AnswerQuizPage.dart';
 import 'HomePage.dart';
 import '../app.dart';
 
@@ -98,6 +100,13 @@ class _ScanQR_state extends State<ScanQR_button> {
       splashColor: Colors.blue,
       onPressed: () {
         scan();
+        if (searchName(barcode)){
+          Navigator.push(context, new MaterialPageRoute(
+              builder: (context) =>
+              new StartQuiz(quiz: getQuiz(barcode)))
+          );
+
+        }
       },
       child: RichText(
         text: TextSpan(

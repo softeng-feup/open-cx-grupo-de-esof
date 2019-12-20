@@ -3,8 +3,10 @@ import 'dart:math';
 import 'package:english_words/english_words.dart' as prefix0;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Data%20Structures/session.dart';
 import 'package:flutter_app/QuizCreation/QuizEditScreen.dart';
-import 'package:flutter_app/QuizCreation/QuizInfo.dart';
+import 'package:flutter_app/Data%20Structures/QuizInfo.dart';
+
 
 
 class QuizManagementScreen extends StatefulWidget {
@@ -86,6 +88,7 @@ class _QuizManagementScreenState extends State<QuizManagementScreen> {
 
   void _sendDataBack(BuildContext context) {
     List<QuizInfo> updatedExtraInfo = informationCardsToQuizInfo(quizSelWindow.getList());
+    quizzes.addAll(updatedExtraInfo);
     Navigator.pop(context, updatedExtraInfo);
   }
 }

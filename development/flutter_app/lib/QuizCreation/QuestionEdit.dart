@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'QuestionInfo.dart';
+import '../Data Structures/QuestionInfo.dart';
 
 class QuestionEdit extends StatefulWidget {
 

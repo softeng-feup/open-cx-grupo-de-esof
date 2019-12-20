@@ -1,9 +1,10 @@
-import 'package:flutter_app/QuizCreation/QuestionInfo.dart';
+import 'package:flutter_app/Data%20Structures/QuestionInfo.dart';
 
 class QuizInfo {
 
   String quizName;
   List<QuestionInfo> questions = [];
+
 
   QuizInfo(this.quizName);
 
