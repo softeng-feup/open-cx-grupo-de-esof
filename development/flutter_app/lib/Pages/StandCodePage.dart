@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_app/Data%20Structures/session.dart';
 import 'dart:async';
 import 'AnswerQuizPage.dart';
-import 'HomePage.dart';
+import 'UserHomePage.dart';
 import '../app.dart';
 
 class StandCodePage extends StatelessWidget {
