@@ -6,6 +6,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_app/Pages/AdminHomePage.dart';
+import 'package:flutter_app/UserInfo/screens.dart';
+
 
 
 class LoginPage extends StatefulWidget {
@@ -197,13 +199,8 @@ class Create_Account_Button extends StatelessWidget {
   }
 
   _buttonTap(BuildContext context) {
-    // Nao funciona, nao sei porque
-    //Navigator.pushNamed(context, page1.routeName);
-
-    Navigator.push(context, new MaterialPageRoute(
-        builder: (context) =>
-        new UserMainScreen())
-    );
+    Route route = MaterialPageRoute(builder: (context) => SecondScreen());
+    Navigator.push(context, route);
   }
 }
 
