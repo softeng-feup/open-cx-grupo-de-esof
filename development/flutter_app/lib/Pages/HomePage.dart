@@ -1,8 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Data%20Structures/session.dart';
+import 'package:flutter_app/Pages/StandCodePage.dart';
+import 'package:flutter_app/QuizCreation/QuizManagementScreen.dart';
+import 'package:flutter_app/UserInfo/screens.dart';
 import 'package:flutter_app/UserMainScreen/UserMainScreen.dart';
-import 'StandCodePage.dart';
-import 'HomePage.dart';
 
 class HomePage extends StatelessWidget {
   static const String routeName = "/";
@@ -10,124 +12,25 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'QuizApp',
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text('QuizApp'),
-          ),
-          body: Center(
-              child: Column(children: <Widget>[
-                Padding(padding: EdgeInsets.only(top: 40.0)),
-                RichText(
-                  text: TextSpan(
-                    text: 'QuizApp',
-                    style: TextStyle(fontWeight: FontWeight.bold,
-                        fontSize: 50,
-                        color: Colors.lightBlue
-                    ),
-                  ),
-                ),
-                Padding(padding: EdgeInsets.only(top: 40.0)),
-                  RichText(
-                    text: TextSpan(
-                      text: 'Login',
-                      style: TextStyle(
-                          fontSize: 35,
-                          color: Colors.black,
-                      ),
-                    ),
-                  ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Login_Form(),
-                ),
-                Padding(padding: EdgeInsets.only(top: 40.0)),
-                Create_Account_Button()
-              ])
-          ),
-        )
-    );
-  }
-}
-
-
-class Login_Form extends StatelessWidget {
-  static final _formKey = new GlobalKey<FormState>();
-
-  String _password;
-
-  String _username;
-
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        //mainAxisAlignment: MainAxisAlignment.values(List(5)),
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          RichText(
-            text: TextSpan(
-              text: 'Username',
-              style: TextStyle(fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.black,
-              ),
-            ),
-          ),
-          TextFormField(
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-            onSaved: (value) => _username = value,
-          ),
-          Padding(padding: EdgeInsets.only(top: 40.0)),
-          RichText(
-            text: TextSpan(
-              text: 'Password',
-              style: TextStyle(fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.black,
-              ),
-            ),
-          ),
-          TextFormField(
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-              onSaved: (value) => _password = value,
-            obscureText:true
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: RaisedButton(
-              onPressed: () {
-                // Validate will return true if the form is valid, or false if
-                // the form is invalid.
-                if (_formKey.currentState.validate()) {
-                  // Process data.
-                  _formKey.currentState.save();
-                  print(_username);
-                  print(_password);
-                }
-              },
-              child: Text('Submit'),
-            ),
-          ),
-        ],
+      title: 'Home Page',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(user.username),
+        ),
+            body: Center(
+                child: Column(children: <Widget>[
+                  CreateQuizButton(),
+                  AnswerQuizButton(),
+                  ProfileDetailsButton()
+                ])
       ),
+      )
     );
   }
-
 }
 
-class Create_Account_Button extends StatelessWidget {
+
+class CreateQuizButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
@@ -142,7 +45,7 @@ class Create_Account_Button extends StatelessWidget {
       },
       child: RichText(
         text: TextSpan(
-          text: "Don't have an account?",
+          text: "Create Quiz",
           style: TextStyle(
             color: Colors.white,
           ),
@@ -158,7 +61,79 @@ class Create_Account_Button extends StatelessWidget {
 
     Navigator.push(context, new MaterialPageRoute(
         builder: (context) =>
-        new UserMainScreen())
+        new QuizManagementScreen(quizzes: []))
+    );
+  }
+}
+
+class AnswerQuizButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+      color: Colors.black,
+      textColor: Colors.white,
+      disabledColor: Colors.grey,
+      disabledTextColor: Colors.black,
+      padding: EdgeInsets.all(8.0),
+      splashColor: Colors.blue,
+      onPressed: () {
+        _buttonTap(context);
+      },
+      child: RichText(
+        text: TextSpan(
+          text: "Answer Quiz",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        textScaleFactor: 2,
+      ),
+    );
+  }
+
+  _buttonTap(BuildContext context) {
+    // Nao funciona, nao sei porque
+    //Navigator.pushNamed(context, page1.routeName);
+
+    Navigator.push(context, new MaterialPageRoute(
+        builder: (context) =>
+        new StandCodePage())
+    );
+  }
+}
+
+class ProfileDetailsButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+      color: Colors.black,
+      textColor: Colors.white,
+      disabledColor: Colors.grey,
+      disabledTextColor: Colors.black,
+      padding: EdgeInsets.all(8.0),
+      splashColor: Colors.blue,
+      onPressed: () {
+        _buttonTap(context);
+      },
+      child: RichText(
+        text: TextSpan(
+          text: "Profile Details",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        textScaleFactor: 2,
+      ),
+    );
+  }
+
+  _buttonTap(BuildContext context) {
+    // Nao funciona, nao sei porque
+    //Navigator.pushNamed(context, page1.routeName);
+
+    Navigator.push(context, new MaterialPageRoute(
+        builder: (context) =>
+        new SecondScreen())
     );
   }
 }
