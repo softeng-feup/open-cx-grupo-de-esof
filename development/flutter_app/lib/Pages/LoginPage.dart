@@ -78,20 +78,20 @@ class _HomePageState extends State<HomePage> {
           body: Center(
               child: Column(
                   children: <Widget>[
-                    FutureBuilder<PostList>(
-                      future: postlist,
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          return Text(snapshot.data.posts[0].username);
-                        } else if (snapshot.hasError) {
-                          return Text("${snapshot.error}");
-                        }
-
-                        // By default, show a loading spinner.
-                        return CircularProgressIndicator();;
-                      },
-                    ),
-                   /* Padding(padding: EdgeInsets.only(top: 40.0)),
+//                    FutureBuilder<PostList>(
+//                      future: postlist,
+//                      builder: (context, snapshot) {
+//                        if (snapshot.hasData) {
+//                          return Text(snapshot.data.posts[0].username);
+//                        } else if (snapshot.hasError) {
+//                          return Text("${snapshot.error}");
+//                        }
+//
+//                        // By default, show a loading spinner.
+//                        return CircularProgressIndicator();;
+//                      },
+//                    ),
+                    Padding(padding: EdgeInsets.only(top: 40.0)),
                     RichText(
                       text: TextSpan(
                         text: 'QuizApp',
@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                     Padding(padding: EdgeInsets.only(top: 40.0)),
                     Create_Account_Button()
 
-                    */
+
               ])
           ),
         )
@@ -133,15 +133,21 @@ class Login_Form extends StatelessWidget {
   static final _formKey = new GlobalKey<FormState>();
 
   String _password;
-
   String _username;
 
-
-
-  void validateLogin(String username, String password) {
-    //Future<Post> response = fetchPost();
-
-    //if (response.username == username)
+  void validateLogin(BuildContext context, String username, String password) {
+   if (username == "admin" && password == "admin123") {
+     Navigator.push(context, new MaterialPageRoute(
+         builder: (context) =>
+         new UserMainScreen())
+     );
+   }
+   else if (username == "jondoe" && password == "jondoe123") {
+     Navigator.push(context, new MaterialPageRoute(
+         builder: (context) =>
+         new UserMainScreen())
+     );
+   }
   }
 
   @override
@@ -200,9 +206,7 @@ class Login_Form extends StatelessWidget {
                 if (_formKey.currentState.validate()) {
                   // Process data.
                   _formKey.currentState.save();
-                  print(_username);
-                  print(_password);
-                  validateLogin(_username, _password);
+                  validateLogin(context, _username, _password);
                 }
               },
               child: Text('Submit'),
